@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>ICTC | INFORMATION AND COMMUNICATION TECHNOLOGIES COMMISSION</title>
+    <title>ICTC | TAIC 2023 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="INFORMATION AND COMMUNICATION TECHNOLOGIES COMMISSION" name="description" />
     <meta content="chamnet (t) limited" name="author" />
@@ -17,6 +17,7 @@
     <!-- Layout config Js -->
     <script src="{{ asset('assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />

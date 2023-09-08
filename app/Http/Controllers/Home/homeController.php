@@ -86,7 +86,6 @@ class homeController extends Controller
         // dd($result);
         if ($result->error==1)
         {
-            
             Toastr::error($result->message, 'Failed');
             return redirect()->back()->withInput();
         }

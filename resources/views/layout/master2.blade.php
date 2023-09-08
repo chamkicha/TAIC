@@ -3,7 +3,7 @@
   <!-- Mirrored from themesbrand.com/velzon/html/default/forms-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Apr 2023 09:45:21 GMT -->
   <head>
     <meta charset="utf-8" />
-    <title>ICTC | INFORMATION AND COMMUNICATION TECHNOLOGIES COMMISSION</title>
+    <title>ICTC | Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="INFORMATION AND COMMUNICATION TECHNOLOGIES COMMISSION" name="description" />
     <meta content="chamnet (t) limited" name="author" />
@@ -15,6 +15,8 @@
     <script src="{{ asset('assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- Icons Css -->
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -57,7 +59,7 @@
                 </script> © ICTC.
               </div>
               <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block"> Design & Develop by n-card </div>
+                <div class="text-sm-end d-none d-sm-block"> Design & Develop by n-card and ICTC Team </div>
               </div>
             </div>
           </div>

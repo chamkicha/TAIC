@@ -9,7 +9,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">Home</a>
+                        <a href="{{  URL::to('/') }}">Home</a>
                       </li>
                       <li class="breadcrumb-item active">Registration for Conference</li>
                     </ol>
@@ -101,10 +101,8 @@
                                                               <div class="flex-grow-1 text-muted overflow-hidden">
                                                                   <h5 class="fs-14 text-truncate mb-1">
                                                                       <a href="#" class="text-dark" id="full_name"></a>
-                                                                  </h5>
-                                                                  
-                                                                  <table>
-                                                                    
+                                                                  </h5>                                                                  
+                                                                  <table>                                                                    
                                                                     <tbody>
                                                                             <tr>
                                                                                 <td><p class="text-muted text-truncate mb-0"> Category :</p></td>
@@ -122,6 +120,10 @@
                                                                                 <td><p class="text-muted text-truncate mb-0"> Institution :</p></td>
                                                                                 <td><p class="fw-semibold text-dark mb-0" id="institution"></p></td>
                                                                             </tr>
+                                                                            <tr>
+                                                                              <td><p class="text-muted text-truncate mb-0"> Payment Status :</p></td>
+                                                                              <td><p class="fw-semibold text-dark mb-0" id="paymentStatus"></p></td>
+                                                                          </tr>
                                                                     </tbody>
                                                                 </table>
 
@@ -138,7 +140,7 @@
                                                                     </thead>
                                                                     <tbody id="data_table_body">
                                                                     </tbody>
-                                                                    
+                                      
                                                                 </table>
 
                                                                 <p class="fw-semibold text-dark mt-3" style="margin-bottom: 0px;">Event Fee</p>
@@ -169,11 +171,12 @@
                                                                     </tfoot>
                                                                 </table>
 
-                                                              </div>
-                                                              
+                                                              </div>                                                         
                                                               
                                                           </div>
-                                                          
+                                                          <div class="node-card">
+                                                            <p>Please! Note Down Your Registration ID. For Future Reference</p>
+                                                          </div>
                                                       </div>
                                                       <!-- end card body -->
                                                   </div>
@@ -433,6 +436,7 @@ function getRegDetails() {
               document.getElementById('reg_number').textContent = data.data.reg_no;
               document.getElementById('mobile').textContent = data.data.mobile;
               document.getElementById('institution').textContent = data.data.institution;
+              // document.getElementById('paymentStatus').textContent = data.data.fee_status;
               document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString('en-US');
               var annual_fee = data.data.annual_fee;
               var event_fee = data.data.event_fee.toLocaleString('en-US');
