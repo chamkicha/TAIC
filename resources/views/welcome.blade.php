@@ -41,7 +41,7 @@
                     <div class="col-lg-8 col-sm-10">
                         <div class="text-center">
                             <h3 class="display-6 fw-medium mt-1 lh-base text-white">ONLINE TAIC 2023 REGISTRATION</h3>
-                            <p class="lead text-white-50 lh-base mb-4 pb-2">Unleashing emerging technologies in the digital transformation for job creation and socio-economic development</p>
+                            <p class="lead text-white lh-base mb-4 pb-2">Unleashing emerging technologies in the digital transformation for job creation and socio-economic development</p>
 
                             {{-- <div class="hstack gap-2 justify-content-center">
                                 <a href="#register" class="btn btn-primary">Register Here <i class="ri-arrow-right-line align-middle ms-1"></i></a>

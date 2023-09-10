@@ -193,7 +193,8 @@
                                                                                                             <td>
                                                                                                                 <p
                                                                                                                     class="text-muted text-truncate mb-0">
-                                                                                                                    Payment Status
+                                                                                                                    Payment
+                                                                                                                    Status
                                                                                                                     :
                                                                                                                 </p>
                                                                                                             </td>
@@ -289,8 +290,10 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="node-card">
-                                                                                            <p>Please! Note Down Your Registration ID. For Future Reference</p>
-                                                                                          </div>
+                                                                                            <p>Please! Note Down Your
+                                                                                                Registration ID. For
+                                                                                                Future Reference</p>
+                                                                                        </div>
                                                                                     </div>
                                                                                     <!-- end card body -->
                                                                                 </div>
