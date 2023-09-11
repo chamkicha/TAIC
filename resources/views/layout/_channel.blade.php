@@ -88,8 +88,6 @@
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
-
-
               </div>
             </div>
         </div>
@@ -117,16 +115,13 @@
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
-
-
               </div>
             </div>
         </div>
     </div>
     <div class="d-flex align-items-start gap-3 mt-4">
-      <button type="button" id="backButton" class="btn btn-link text-decoration-none btn-label previestab" data-previous="pills-gen-info-tab">
-        <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back </button>
-      
+      <button type="button" id="backButton"  onclick="refreshData()" class="btn btn-link text-decoration-none btn-label previestab" data-previous="pills-gen-info-tab">
+        <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back </button>      
     </div>
   </div>
   <!-- end tab pane -->

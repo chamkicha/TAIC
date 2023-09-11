@@ -189,19 +189,24 @@
                                                                                                             <td>
                                                                                                                 <p
                                                                                                                     class="text-muted text-truncate mb-0">
-                                                                                                                    Bill
-                                                                                                                    Number
-                                                                                                                    :
+                                                                                                                    Bill Number :
                                                                                                                 </p>
                                                                                                             </td>
                                                                                                             <td>
                                                                                                                 <p class="fw-semibold text-dark mb-0 p-1"
                                                                                                                     id="billNumber"
                                                                                                                     style="color:white!important;
-                                                                                      background-color: #4d1313;
-                                                                                      border-radius: .25rem;">
+                                                                                                                        background-color: #4d1313;
+                                                                                                                        border-radius: .25rem;">
                                                                                                                 </p>
                                                                                                             </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td><p class="text-muted text-truncate mb-0"> Payment Status :</p></td>
+                                                                                                            <td><p class="fw-semibold text-dark mb-0" id="paymentStatus">                                                                                    
+                                                                                                                <img id="check" src="{{asset('assets/images/icons/check.png')}}" style="display:none" alt="check" width="16px" height="16px">
+                                                                                                                <img id="cross" src="{{asset('assets/images/icons/cross.png')}}" style="display:none" alt="cross" width="16px" height="16px">
+                                                                                                            </p></td>
                                                                                                         </tr>
                                                                                                     </tbody>
                                                                                                 </table>
@@ -291,7 +296,7 @@
                                                                                         </div>
                                                                                         <div class="node-card">
                                                                                             <p>Please! Note Down Your
-                                                                                                Registration ID. For
+                                                                                                Bill No. For
                                                                                                 Future Reference</p>
                                                                                         </div>
                                                                                     </div>
@@ -316,13 +321,13 @@
                                                       style="font-size: larger" role="alert" id="successID">
 
                                                   </div>
-                                              </div>
-                                              <div class="card" id="errorDiv" style="display:none">
+                                                </div>
+                                                <div class="card" id="errorDiv" style="display:none">
                                                   <div class="alert alert-danger text-center"
                                                       style="font-size: larger" role="alert" id="allertId">
 
                                                   </div>
-                                              </div>
+                                                </div>
                                             </div>
                                             <div class="d-flex align-items-start gap-3 mt-4">
                                                 <button type="button" class="btn btn-success btn-label right ms-auto"
@@ -393,6 +398,9 @@
             });
         </script>
         <script>
+            function refreshData(){
+                getRegDetails();
+                }
             function getRegDetails() {
                 let reg_no = document.getElementById('reg_no').value;
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -450,6 +458,13 @@
                                 $('#payBillButton').show(200);
                                 $('#generateBillButton').hide();
                             }
+                            if (data.data.payment_reference == "") {
+                                $('#cross').show(200);
+                                $('#check').hide();
+                            } else {
+                                $('#check').show(200);
+                                $('#cross').hide();
+                            }
                             $('#infoDiv').show(200);
                             $('#errorDiv').hide();
                         } else {
@@ -467,7 +482,6 @@
                         $('#loaderNew').hide();
                     }
                 });
-
             }
         </script>
         <script>
