@@ -26,9 +26,6 @@
                             <!-- end card header -->
                             <div class="card-body">
                                 <form action="#" class="form-steps" autocomplete="off">
-                                    <div class="text-center pt-3 pb-4 mb-1">
-                                        <!-- <h5>Signup Your Account</h5> -->
-                                    </div>
                                     <div id="custom-progress-bar" class="progress-nav mb-4">
                                         <div class="progress" style="height: 1px;">
                                             <div class="progress-bar" role="progressbar" style="width: 0%;"
@@ -64,7 +61,6 @@
 
                                                 <div class="row">
                                                     <div class="col-lg-6">
-
                                                         <div class="mb-3">
                                                             <label class="form-label"
                                                                 for="gen-info-password-input">Registration
@@ -392,6 +388,7 @@
                         $('#loaderNew').show();
                     },
                     success: function(data) {
+                        console.log(data);
                         if (data.statusCode == 200) {
                             document.getElementById('full_name').textContent = data.data.first_name + ' ' + data
                                 .data.middle_name + ' ' + data.data.last_name;
@@ -425,7 +422,6 @@
                                 var amountCell = document.createElement('td');
                                 amountCell.textContent = annual_fee[i].amount;
                                 row.appendChild(amountCell);
-
                                 tableBody.appendChild(row);
                             }
                             if (data.data.bill_ref_no == "") {
@@ -438,7 +434,8 @@
                             $('#errorDiv').hide();
 
                         } else {
-                            document.getElementById('allertId').textContent = data.message;
+                            console.log(data?.message)
+                            document.getElementById('allertId').textContent = data?.message;
                             $('#generateBillButton').hide(200);
                             $('#infoDiv').hide();
                             $('#errorDiv').show(200);

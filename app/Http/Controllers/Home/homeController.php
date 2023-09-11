@@ -29,27 +29,21 @@ class homeController extends Controller
 
     public function processRegistrationNumber(Request $request)
     {
-
-
-        $URL  = baseURL().'/process-regno';
-        
-       
+        $URL  = baseURL().'/process-regno';      
         try{
         $result  =  Http::post($URL,
-            [
-                'reg_no'=>$request->reg_no
-            ]
+            ['reg_no'=>$request->reg_no]
         );
         $result = json_decode($result);
         if ($result->error==1)
-        {
-            $responseData = [
-                'statusCode' => 400,
-                'reg_no' => $request->reg_no,
-                'message' => $result->message
-                 ];
-            return response()->json($responseData, Response::HTTP_OK);
-        }
+                {
+                    $responseData = [
+                        'statusCode' => 400,
+                        'reg_no' => $request->reg_no,
+                        'message' => $result->message
+                        ];
+                    return response()->json($responseData, Response::HTTP_OK);
+                }
             $responseData = [
                 'statusCode' => 200,
                 'reg_no' => $request->reg_no,
@@ -57,7 +51,6 @@ class homeController extends Controller
                 'message' => 'successfully get data'
                 ];
             return response()->json($responseData, Response::HTTP_OK);
-
         }catch (Exception $error) {
             return response()->json([
                 'statusCode' => 402,
@@ -65,8 +58,6 @@ class homeController extends Controller
                 'error' => $error,
             ]);
         }
-
-
     }
 
     public function memberDetails($reg_no)

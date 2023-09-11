@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="pills-info-desc" role="tabpanel" aria-labelledby="pills-info-desc-tab">
+ <div class="tab-pane fade" id="pills-info-desc" role="tabpanel" aria-labelledby="pills-info-desc-tab">
                           
     <div class="mb-4">
         <div>
@@ -24,13 +24,10 @@
                   <ol class="list-group list-group-numbered">
                       <li class="list-group-item">PIGA *150*71#</li>
                       <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
-                      <li class="list-group-item">CHAGUA 9 ›MALIPO MTANDAONI</li>
-                      <li class="list-group-item">CHAGUA 2 ›NUNUA TIKETI</li>
-                      <li class="list-group-item">CHAGUA MATUKIO YALIYOPO</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA</li>
-                      <li class="list-group-item">CHAGUA MECHI UNAYOTAKA KULIPIA</li>
-                      <li class="list-group-item">CHAGUA AINA YA TIKETI UNAYOTAKA</li>
-                      <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA N-CARD</li>
+                      <li class="list-group-item">CHAGUA 2 ›NAMBA YA KAMPUNI</li>
+                      <li class="list-group-item">INGIZA NAMBA YA KAMPUNI 009009</li>
+                      <li class="list-group-item">INGIZA KUMBUKUMBU NAMBA mf(ICTC*********)</li>
+                      <li class="list-group-item">INGIZA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
@@ -55,13 +52,10 @@
                 <ol class="list-group list-group-numbered">
                       <li class="list-group-item">PIGA *150*01#</li>
                       <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
-                      <li class="list-group-item">CHAGUA 6 ›MALIPO MTANDAONI</li>
-                      <li class="list-group-item">CHAGUA 1 ›MATUKIO YALIOPO</li>
-                      <li class="list-group-item">CHAGUA 1 >TIKETI ZA MICHEZO</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA</li>
-                      <li class="list-group-item">CHAGUA MECHI UNAYOTAKA KULIPIA</li>
-                      <li class="list-group-item">CHAGUA AINA YA TIKETI UNAYOTAKA</li>
-                      <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA N-CARD</li>
+                      <li class="list-group-item">CHAGUA 3 ›NAMBA YA KAMPUNI</li>
+                      <li class="list-group-item">CHAGUA 4 ›009009</li>
+                      <li class="list-group-item">CHAGUA 1 >WEKA KUMBUKUMBU NAMBA mfn(ICTC********) </li>
+                      <li class="list-group-item">WEKA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
@@ -81,19 +75,16 @@
                   
 
                 <div class="d-flex justify-content-center">
-                    <img class="img-thumbnail rounded-circle avatar-xl" alt="200x200" src="{{ asset('assets/images/logo/mpesa.png') }}">
+                    <img class="img-thumbnail rounded-circle avatar-xl" alt="200x200" src="{{ asset('assets/images/logo/mpesa.jpg') }}">
                 </div>
 
                 <ol class="list-group list-group-numbered">
                       <li class="list-group-item">PIGA *150*00#</li>
                       <li class="list-group-item">CHAGUA 4 ›LIPA KWA M-PESA</li>
-                      <li class="list-group-item">CHAGUA 9 ›ZAIDI</li>
-                      <li class="list-group-item">CHAGUA 1› E Payments</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MICHEZO</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA</li>
-                      <li class="list-group-item">CHAGUA MECHI MECHI UNAYOTAKA KULIPIA</li>
-                      <li class="list-group-item">CHAGUA AINA YA TIKETI UNAYOTAKA</li>
-                      <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA N-CARD</li>
+                      <li class="list-group-item">CHAGUA 4 ›NAMBA YA KAMPUNI</li>
+                      <li class="list-group-item">CHAGUA 1› WEKA NAMBA YA KAMPUNI 009009</li>
+                      <li class="list-group-item">WEKA KUMBUKUMBU NAMBA mf(ICTC********)</li>
+                      <li class="list-group-item">WEKA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
@@ -104,7 +95,7 @@
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header" id="mpesa">
+            <h2 class="accordion-header" id="airtel">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#airtel" aria-expanded="false" aria-controls="collapseThree">
                     AIRTEL MONEY
                 </button>
@@ -118,14 +109,11 @@
 
                 <ol class="list-group list-group-numbered">
                       <li class="list-group-item">PIGA *150*60#</li>
-                      <li class="list-group-item">CHAGUA 4 ›LIPA KWA M-PESA</li>
-                      <li class="list-group-item">CHAGUA 9 ›ZAIDI</li>
-                      <li class="list-group-item">CHAGUA 1› E Payments</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MICHEZO</li>
-                      <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA</li>
-                      <li class="list-group-item">CHAGUA MECHI MECHI UNAYOTAKA KULIPIA</li>
-                      <li class="list-group-item">CHAGUA AINA YA TIKETI UNAYOTAKA</li>
-                      <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA N-CARD</li>
+                      <li class="list-group-item">CHAGUA 5 ›LIPA BILL </li>
+                      <li class="list-group-item">CHAGUA 3 › INGIZA NAMBA YA KAMPUNI </li>
+                      <li class="list-group-item">NAMBA YA KAMPUNI 009009</li>
+                      <li class="list-group-item">INGIZA › KUMBUKUMBU NAMBA mf(ICTC*********)</li>
+                      <li class="list-group-item">INGIZA KIASI </li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
                   </ol>
