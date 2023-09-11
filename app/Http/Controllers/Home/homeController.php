@@ -190,8 +190,6 @@ class homeController extends Controller
             $street = $request->street;
 
         }
-        
-       
         try{
         $data = [
             'first_name' => $request->first_name,
@@ -220,7 +218,6 @@ class homeController extends Controller
             return redirect()->back()->withInput();
 
         }
-        
             $responseData = [
                 'statusCode' => 200,
                 'data'  => $result,
@@ -237,6 +234,33 @@ class homeController extends Controller
         }
 
     }
+    public function generateBill(Request $request){
+        $URL  = baseURL().'/process-bill';
+        try{
+        $result  =  Http::post($URL,
+            [
+                'reg_no'=>$request->reg_no
+            ]
+        );
+        $result = json_decode($result);
+        
+            $responseData = [
+                'statusCode' => 200,
+                'data'  => $result,
+                'message' => 'successfully get data'
+                ];
+            return response()->json($responseData, Response::HTTP_OK);
+
+        }catch (Exception $error) {
+            return response()->json([
+                'statusCode' => 402,
+                'message' => 'something went wrong.',
+                'error' => $error,
+            ]);
+        }
+    }
+
+    
 
     
 }

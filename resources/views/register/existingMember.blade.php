@@ -49,9 +49,6 @@
                                                     type="button" role="tab" aria-controls="pills-info-desc"
                                                     aria-selected="false">2</button>
                                             </li>
-                                            <!-- <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-pill" data-progressbar="custom-progress-bar" id="pills-success-tab" data-bs-toggle="pill" data-bs-target="#pills-success" type="button" role="tab" aria-controls="pills-success" aria-selected="false">3</button>
-                          </li> -->
                                         </ul>
                                     </div>
 
@@ -81,8 +78,6 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mt-4">
-
-
                                                             <button type="button" class="btn btn-success btn-load"
                                                                 onclick="getRegDetails()">
                                                                 <span class="d-flex align-items-center">
@@ -99,17 +94,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="card" id="infoDiv" style="display:none">
                                                     <div class="p-1">
-
                                                         <div class="row">
-                                                            <div class="col-lg-6">
-
-
+                                                            <div class="col-lg-8">
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
-
                                                                         <div class="swiper-wrapper"
                                                                             id="swiper-wrapper-a6ca147977931458"
                                                                             aria-live="polite"
@@ -193,14 +183,17 @@
                                                                                                             <td>
                                                                                                                 <p
                                                                                                                     class="text-muted text-truncate mb-0">
-                                                                                                                    Payment
-                                                                                                                    Status
+                                                                                                                    Bill
+                                                                                                                    Number
                                                                                                                     :
                                                                                                                 </p>
                                                                                                             </td>
                                                                                                             <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0"
-                                                                                                                    id="paymentStatus">
+                                                                                                                <p class="fw-semibold text-dark mb-0 p-1"
+                                                                                                                    id="billNumber"
+                                                                                                                    style="color:white!important;
+                                                                                                                    background-color: #4d1313;
+                                                                                                                    border-radius: .25rem;">
                                                                                                                 </p>
                                                                                                             </td>
                                                                                                         </tr>
@@ -291,7 +284,7 @@
                                                                                         </div>
                                                                                         <div class="node-card">
                                                                                             <p>Please! Note Down Your
-                                                                                                Registration ID. For
+                                                                                                Bill Number. For
                                                                                                 Future Reference</p>
                                                                                         </div>
                                                                                     </div>
@@ -300,267 +293,71 @@
                                                                                 <!-- end card -->
                                                                             </div>
                                                                             <!-- end slide item -->
-
                                                                         </div>
                                                                     </div>
-
-
                                                                 </div>
-
-
-
-
-                                                            </div>
-                                                            <div class="col-lg-6">
-
                                                             </div>
                                                         </div>
 
                                                     </div><!-- end card body -->
                                                 </div>
+                                                <div class="card" id="succcessDiv" style="display:none">
+                                                    <div class="alert alert-success text-center"
+                                                        style="font-size: larger" role="alert" id="successID">
 
+                                                    </div>
+                                                </div>
                                                 <div class="card" id="errorDiv" style="display:none">
-                                                    <div class="alert alert-danger" role="alert" id="allertId">
+                                                    <div class="alert alert-danger text-center"
+                                                        style="font-size: larger" role="alert" id="allertId">
 
                                                     </div>
                                                 </div>
+                                                <div class="d-flex align-items-start gap-3 mt-4">
+                                                    <button type="button"
+                                                        class="btn btn-success btn-label right ms-auto"
+                                                        id="generateBillButton" style="display:none">
+                                                        <i
+                                                            class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate
+                                                        Bill
+                                                    </button>
+                                                    <button type="button"
+                                                        class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                                        data-nexttab="pills-info-desc-tab" id="payBillButton"
+                                                        style="display:none">
+                                                        <i
+                                                            class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Pay
+                                                        Bill
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="d-flex align-items-start gap-3 mt-4">
-                                                <button type="button"
-                                                    class="btn btn-success btn-label right ms-auto nexttab nexttab"
-                                                    data-nexttab="pills-info-desc-tab" id="generateBillButton"
-                                                    style="display:none">
-                                                    <i
-                                                        class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate
-                                                    Bill </button>
-                                            </div>
-                                        </div>
-                                        <!-- end tab pane -->
-                                        <div class="tab-pane fade" id="pills-info-desc" role="tabpanel"
-                                            aria-labelledby="pills-info-desc-tab">
-
-                                            <div class="mb-4">
+                                            @include('layout._channel')
+                                            <!-- end tab pane -->
+                                            <div class="tab-pane fade" id="pills-success" role="tabpanel"
+                                                aria-labelledby="pills-success-tab">
                                                 <div>
-                                                    <h5 class="mb-1">Payments Instruction</h5>
-                                                    <p class="text-muted">Please choose your desired service provider
-                                                        and follow the payment instructions provided.</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="accordion" id="default-accordion-example">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#t-pesa"
-                                                            aria-expanded="true" aria-controls="collapseOne">
-                                                            T-PESA
-                                                        </button>
-                                                    </h2>
-                                                    <div id="t-pesa" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingOne"
-                                                        data-bs-parent="#default-accordion-example">
-                                                        <div class="accordion-body">
-
-                                                            <div class="d-flex justify-content-center">
-                                                                <img class="img-thumbnail rounded-circle avatar-xl"
-                                                                    alt="200x200"
-                                                                    src="{{ asset('assets/images/logo/tpesa.jpeg') }}">
-                                                            </div>
-
-                                                            <ol class="list-group list-group-numbered">
-                                                                <li class="list-group-item">PIGA *150*71#</li>
-                                                                <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
-                                                                <li class="list-group-item">CHAGUA 9 ›MALIPO MTANDAONI
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 2 ›NUNUA TIKETI</li>
-                                                                <li class="list-group-item">CHAGUA MATUKIO YALIYOPO
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA MECHI UNAYOTAKA
-                                                                    KULIPIA</li>
-                                                                <li class="list-group-item">CHAGUA AINA YA TIKETI
-                                                                    UNAYOTAKA</li>
-                                                                <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA
-                                                                    N-CARD/REFERENCE NO</li>
-                                                                <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
-                                                                <li class="list-group-item">THIBITISHA</li>
-                                                            </ol>
-
+                                                    <div class="text-center">
+                                                        <div class="mb-4">
+                                                            <lord-icon src="https://cdn.lordicon.com/lupuorrc.json"
+                                                                trigger="loop"
+                                                                colors="primary:#0ab39c,secondary:#405189"
+                                                                style="width:120px;height:120px"></lord-icon>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingTwo">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#tigopesa"
-                                                            aria-expanded="false" aria-controls="collapseTwo">
-                                                            TIGOPESA
-                                                        </button>
-                                                    </h2>
-                                                    <div id="tigopesa" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingTwo"
-                                                        data-bs-parent="#default-accordion-example">
-                                                        <div class="accordion-body">
-
-                                                            <div class="d-flex justify-content-center">
-                                                                <img class="img-thumbnail rounded-circle avatar-xl"
-                                                                    alt="200x200"
-                                                                    src="{{ asset('assets/images/logo/tigopesa.jpeg') }}">
-                                                            </div>
-
-                                                            <ol class="list-group list-group-numbered">
-                                                                <li class="list-group-item">PIGA *150*01#</li>
-                                                                <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
-                                                                <li class="list-group-item">CHAGUA 6 ›MALIPO MTANDAONI
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 ›MATUKIO YALIOPO
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 >TIKETI ZA MICHEZO
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA MECHI UNAYOTAKA
-                                                                    KULIPIA</li>
-                                                                <li class="list-group-item">CHAGUA AINA YA TIKETI
-                                                                    UNAYOTAKA</li>
-                                                                <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA
-                                                                    N-CARD/REFERENCE NO</li>
-                                                                <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
-                                                                <li class="list-group-item">THIBITISHA</li>
-                                                            </ol>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="mpesa">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#mpesa"
-                                                            aria-expanded="false" aria-controls="collapseThree">
-                                                            M-PESA
-                                                        </button>
-                                                    </h2>
-                                                    <div id="mpesa" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingThree"
-                                                        data-bs-parent="#default-accordion-example">
-                                                        <div class="accordion-body">
-
-
-                                                            <div class="d-flex justify-content-center">
-                                                                <img class="img-thumbnail rounded-circle avatar-xl"
-                                                                    alt="200x200"
-                                                                    src="{{ asset('assets/images/logo/mpesa.png') }}">
-                                                            </div>
-
-                                                            <ol class="list-group list-group-numbered">
-                                                                <li class="list-group-item">PIGA *150*00#</li>
-                                                                <li class="list-group-item">CHAGUA 4 ›LIPA KWA M-PESA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 9 ›ZAIDI</li>
-                                                                <li class="list-group-item">CHAGUA 1› E Payments</li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MICHEZO
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA MECHI MECHI
-                                                                    UNAYOTAKA KULIPIA</li>
-                                                                <li class="list-group-item">CHAGUA AINA YA TIKETI
-                                                                    UNAYOTAKA</li>
-                                                                <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA
-                                                                    N-CARD/REFERENCE NO</li>
-                                                                <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
-                                                                <li class="list-group-item">THIBITISHA</li>
-                                                            </ol>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="mpesa">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#airtel"
-                                                            aria-expanded="false" aria-controls="collapseThree">
-                                                            AIRTEL MONEY
-                                                        </button>
-                                                    </h2>
-                                                    <div id="airtel" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingThree"
-                                                        data-bs-parent="#default-accordion-example">
-                                                        <div class="accordion-body">
-
-                                                            <div class="d-flex justify-content-center">
-                                                                <img class="img-thumbnail rounded-circle avatar-xl"
-                                                                    alt="200x200"
-                                                                    src="{{ asset('assets/images/logo/airtel.jpeg') }}">
-                                                            </div>
-
-                                                            <ol class="list-group list-group-numbered">
-                                                                <li class="list-group-item">PIGA *150*60#</li>
-                                                                <li class="list-group-item">CHAGUA 4 ›LIPA KWA M-PESA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 9 ›ZAIDI</li>
-                                                                <li class="list-group-item">CHAGUA 1› E Payments</li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MICHEZO
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA 1 ›TIKETI ZA MPIRA
-                                                                </li>
-                                                                <li class="list-group-item">CHAGUA MECHI MECHI
-                                                                    UNAYOTAKA KULIPIA</li>
-                                                                <li class="list-group-item">CHAGUA AINA YA TIKETI
-                                                                    UNAYOTAKA</li>
-                                                                <li class="list-group-item">WEKA NAMBA YA KADI YAKO YA
-                                                                    N-CARD/REFERENCE NO</li>
-                                                                <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
-                                                                <li class="list-group-item">THIBITISHA</li>
-                                                            </ol>
-
-
-                                                        </div>
+                                                        <h5>Well Done !</h5>
+                                                        <p class="text-muted">You have Successfully Signed Up</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="d-flex align-items-start gap-3 mt-4">
-                                                <button type="button"
-                                                    class="btn btn-link text-decoration-none btn-label previestab"
-                                                    data-previous="pills-gen-info-tab">
-                                                    <i
-                                                        class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
-                                                    Back </button>
-
-                                            </div>
+                                            <!-- end tab pane -->
                                         </div>
-                                        <!-- end tab pane -->
-                                        <div class="tab-pane fade" id="pills-success" role="tabpanel"
-                                            aria-labelledby="pills-success-tab">
-                                            <div>
-                                                <div class="text-center">
-                                                    <div class="mb-4">
-                                                        <lord-icon src="https://cdn.lordicon.com/lupuorrc.json"
-                                                            trigger="loop" colors="primary:#0ab39c,secondary:#405189"
-                                                            style="width:120px;height:120px"></lord-icon>
-                                                    </div>
-                                                    <h5>Well Done !</h5>
-                                                    <p class="text-muted">You have Successfully Signed Up</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end tab pane -->
-                                    </div>
-                                    <!-- end tab content -->
+                                        <!-- end tab content -->
                                 </form>
                             </div>
                             <!-- end card body -->
                         </div>
                         <!-- end card -->
                     </div>
-
                 </div>
-
             </div>
             <!-- container-fluid -->
         </div>
@@ -568,26 +365,19 @@
 
         <!-- load jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
         <!-- provide the csrf token -->
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const nextTabButton = document.querySelector(".nexttab");
                 const targetButton = document.getElementById("pills-info-desc-tab");
-
                 nextTabButton.addEventListener("click", function() {
                     targetButton.click(); // Trigger a click event on the target button
                 });
             });
         </script>
-
         <script>
             function getRegDetails() {
-
                 let reg_no = document.getElementById('reg_no').value;
                 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
@@ -598,14 +388,11 @@
                         _token: CSRF_TOKEN,
                         reg_no: reg_no
                     },
-
                     beforeSend: function() {
                         $('#loaderNew').show();
                     },
-
                     success: function(data) {
                         if (data.statusCode == 200) {
-
                             document.getElementById('full_name').textContent = data.data.first_name + ' ' + data
                                 .data.middle_name + ' ' + data.data.last_name;
                             document.getElementById('professional_category').textContent = data.data
@@ -613,7 +400,7 @@
                             document.getElementById('reg_number').textContent = data.data.reg_no;
                             document.getElementById('mobile').textContent = data.data.mobile;
                             document.getElementById('institution').textContent = data.data.institution;
-                            // document.getElementById('paymentStatus').textContent = data.data.fee_status?;
+                            document.getElementById('billNumber').textContent = data.data.bill_ref_no;
                             document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString(
                                 'en-US');
                             var annual_fee = data.data.annual_fee;
@@ -623,14 +410,10 @@
                                     style: 'currency',
                                     currency: 'TZS'
                                 });
-
                             var tableBody = document.getElementById('data_table_body');
-
                             tableBody.innerHTML = '';
-
                             for (var i = 0; i < annual_fee.length; i++) {
                                 var row = document.createElement('tr');
-
                                 var idCell = document.createElement('td');
                                 idCell.textContent = (i + 1).toString();
                                 row.appendChild(idCell);
@@ -645,15 +428,12 @@
 
                                 tableBody.appendChild(row);
                             }
-
-
-
-
-
-
-                            console.log(annual_fee);
-
-                            $('#generateBillButton').show(200);
+                            if (data.data.bill_ref_no == "") {
+                                $('#generateBillButton').show(200);
+                            } else {
+                                $('#payBillButton').show(200);
+                                $('#generateBillButton').hide();
+                            }
                             $('#infoDiv').show(200);
                             $('#errorDiv').hide();
 
@@ -662,17 +442,63 @@
                             $('#generateBillButton').hide(200);
                             $('#infoDiv').hide();
                             $('#errorDiv').show(200);
-
                         }
                         console.log(data);
                     },
                     error: function() {
                         console.log('failed');
                     },
-
                     complete: function() {
                         $('#loaderNew').hide();
                     }
                 });
             }
+            document.getElementById("backButton").addEventListener("click", getRegDetails());
+        </script>
+        <script>
+            // Function to send JSON data when the button is clicked
+            document.getElementById("generateBillButton").addEventListener("click", function() {
+                // JSON data to be sent
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                let reg_no = document.getElementById('reg_no').value;
+                const jsonData = {
+                    _token: CSRF_TOKEN,
+                    reg_no: reg_no,
+                };
+                // Endpoint URL where you want to send the JSON data
+                // const endpoint = "http://41.59.227.219/membership/process-bill";   
+                $.ajax({
+                    type: 'POST',
+                    url: '{!! URL::to('memberDetails/process-bill/') !!}',
+                    data: {
+                        _token: CSRF_TOKEN,
+                        reg_no: reg_no
+                    },
+                    beforeSend: function() {
+
+                        $('#loaderNew').show();
+                    },
+                    success: function(data) {
+                        if (data.statusCode == 200) {
+                            if (data.data.error == 0) {
+                                document.getElementById('successID').textContent =
+                                    "Bill Generated Successful!";
+                                $('#succcessDiv').show();
+                                $('#payBillButton').show(200);
+                                $('#generateBillButton').hide();
+                            }
+                            if (data.data.error == 1) {
+                                document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
+                                $('#errorDiv').show();
+                            }
+                        }
+                    },
+                    error: function() {
+                        console.log('Server Error')
+                    },
+                    complete: function() {
+                        $('#loaderNew').hide();
+                    }
+                });
+            });
         </script>
