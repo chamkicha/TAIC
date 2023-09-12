@@ -143,7 +143,7 @@
                                                                           <tr>
                                                                               <th scope="col">#</th>
                                                                               <th scope="col">Year</th>
-                                                                              <th scope="col">Price(Tsh)</th>
+                                                                              <th scope="col">Price(TZS)</th>
                                                                           </tr>
                                                                       </thead>
                                                                       <tbody id="data_table_body">
@@ -157,7 +157,7 @@
                                                                           <tr>
                                                                               <th scope="col">#</th>
                                                                               <th scope="col">Year</th>
-                                                                              <th scope="col">Price(Tsh)</th>
+                                                                              <th scope="col">Price(TZS)</th>
                                                                           </tr>
                                                                       </thead>
                                                                      
@@ -437,7 +437,7 @@
                                 $('#check').show(200);
                                 $('#cross').hide();
                             }
-                            
+
                             $('#succcessDiv').show();
                             $('#payBillButton').show(200);
                             $('#generateBillButton').hide();
