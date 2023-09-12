@@ -337,7 +337,6 @@
                     
                     $('#generateBillButton').show(200);
                     $('#payBillButton').hide(200);
-
                     $('#cross').show(200);
                     $('#check').hide();
 
@@ -346,7 +345,6 @@
 
                     $('#generateBillButton').hide(200);
                     $('#payBillButton').hide(200);
-
                     $('#check').show(200);
                     $('#cross').hide();
 
@@ -358,8 +356,6 @@
 
                     $('#check').show(200);
                     $('#cross').hide();
-
-
                 }
 
                 // if (data.data.bill_ref_no == "") {

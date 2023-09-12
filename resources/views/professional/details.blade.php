@@ -403,7 +403,7 @@
                                     currency: 'TZS'
                                 });
                             
-                            i // bill is not yet generated fee_status == 2
+                            // bill is not yet generated fee_status == 2
                 if (data.data.fee_status == 2) {
                     
                     $('#generateBillButton').show(200);
