@@ -5,13 +5,13 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Registration for Membership</h4>
+                  <h4 class="mb-sm-0">Conference Registration</h4>
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">Home</a>
+                        <a href="{{route('/')}}">Home</a>
                       </li>
-                      <li class="breadcrumb-item active">Registration for Membership</li>
+                      <li class="breadcrumb-item active">Conference Registration</li>
                     </ol>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
               <div class="col-xl-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title mb-0">Membership registration form</h4>
+                    <h4 class="card-title mb-0">Register Now</h4>
                   </div>
                   <!-- end card header -->
                   <div class="card-body">
@@ -113,7 +113,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-lg-4">
+                              {{-- <div class="col-lg-4">
                                 <div class="mb-3">
                                   <label class="form-label" for="gen-info-professional_category_id-input">Professional Category</label>
 
@@ -125,9 +125,9 @@
                                     </select>
                                   <div class="invalid-feedback">Please enter a Professional Category</div>
                                 </div>
-                              </div>
+                              </div> --}}
 
-                              <div class="col-lg-4">
+                              <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label class="form-label" for="gen-info-nationality-input">Residence Country</label>
 
@@ -141,7 +141,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-lg-4">
+                              <div class="col-lg-6">
                                 <div class="mb-3">
                                   <label class="form-label" for="gen-info-nationality-input">Nationality</label>
 
