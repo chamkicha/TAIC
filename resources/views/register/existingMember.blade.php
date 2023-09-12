@@ -354,8 +354,8 @@
                     $('#generateBillButton').hide(200);
                     $('#payBillButton').show(200);
 
-                    $('#check').show(200);
-                    $('#cross').hide();
+                    $('#check').hide(200);
+                    $('#cross').show();
                 }
 
                 // if (data.data.bill_ref_no == "") {
