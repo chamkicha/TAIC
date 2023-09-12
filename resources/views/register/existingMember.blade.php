@@ -430,11 +430,14 @@
                             document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
                             document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
 
-
-
-                            $('#check').show(200);
-                            $('#cross').hide();
-
+                            if (data.data.payment_reference == "") {
+                                $('#cross').show(200);
+                                $('#check').hide();
+                            } else {
+                                $('#check').show(200);
+                                $('#cross').hide();
+                            }
+                            
                             $('#succcessDiv').show();
                             $('#payBillButton').show(200);
                             $('#generateBillButton').hide();
