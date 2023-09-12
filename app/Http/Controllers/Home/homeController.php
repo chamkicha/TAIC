@@ -189,7 +189,7 @@ class homeController extends Controller
             'gender' => $request->gender,
             'institution' => $request->institution,
             'sector_id' => $request->sector_id,
-            'professional_category_id' => $request->professional_category_id,
+            'professional_category_id' => 5,
             'nationality_id' => $request->nationality_id,
             'residence_country_id' => $request->residence_country_id,
             'ward_id' => $ward_id,
