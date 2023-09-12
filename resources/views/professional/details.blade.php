@@ -403,19 +403,35 @@
                                     currency: 'TZS'
                                 });
                             
-                            if (data.data.bill_ref_no == "") {
-                                $('#generateBillButton').show(200);
-                            } else {
-                                $('#payBillButton').show(200);
-                                $('#generateBillButton').hide();
-                            }
-                            if (data.data.payment_reference == "") {
-                                $('#cross').show(200);
-                                $('#check').hide();
-                            } else {
-                                $('#check').show(200);
-                                $('#cross').hide();
-                            }
+                            i // bill is not yet generated fee_status == 2
+                if (data.data.fee_status == 2) {
+                    
+                    $('#generateBillButton').show(200);
+                    $('#payBillButton').hide(200);
+
+                    $('#cross').show(200);
+                    $('#check').hide();
+
+                // bill is PAID fee_status == 1
+                } else if (data.data.fee_status == 1) {
+
+                    $('#generateBillButton').hide(200);
+                    $('#payBillButton').hide(200);
+
+                    $('#check').show(200);
+                    $('#cross').hide();
+
+                // bill was generated wait for payment fee_status == 0 
+                } else if (data.data.fee_status == 0) {
+                    
+                    $('#generateBillButton').hide(200);
+                    $('#payBillButton').show(200);
+
+                    $('#check').show(200);
+                    $('#cross').hide();
+
+
+                }
                             $('#infoDiv').show(200);
                             $('#errorDiv').hide();
                         } else {
