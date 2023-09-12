@@ -26,7 +26,7 @@
                       <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
                       <li class="list-group-item">CHAGUA 2 ›NAMBA YA KAMPUNI</li>
                       <li class="list-group-item">INGIZA NAMBA YA KAMPUNI 009009</li>
-                      <li class="list-group-item">INGIZA KUMBUKUMBU NAMBA mf(ICTC*********)</li>
+                      <li class="list-group-item">INGIZA KUMBUKUMBU NAMBA <span class="fw-semibold text-dark mb-0" id="billNumberTTCL"></span></li>
                       <li class="list-group-item">INGIZA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
@@ -54,7 +54,7 @@
                       <li class="list-group-item">CHAGUA 4 ›LIPA BILL</li>
                       <li class="list-group-item">CHAGUA 3 ›NAMBA YA KAMPUNI</li>
                       <li class="list-group-item">CHAGUA 4 ›009009</li>
-                      <li class="list-group-item">CHAGUA 1 >WEKA KUMBUKUMBU NAMBA mfn(ICTC********) </li>
+                      <li class="list-group-item">CHAGUA 1 >WEKA KUMBUKUMBU NAMBA <span class="fw-semibold text-dark mb-0" id="billNumberTigo"></span> </li>
                       <li class="list-group-item">WEKA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
@@ -83,7 +83,7 @@
                       <li class="list-group-item">CHAGUA 4 ›LIPA KWA M-PESA</li>
                       <li class="list-group-item">CHAGUA 4 ›NAMBA YA KAMPUNI</li>
                       <li class="list-group-item">CHAGUA 1› WEKA NAMBA YA KAMPUNI 009009</li>
-                      <li class="list-group-item">WEKA KUMBUKUMBU NAMBA mf(ICTC********)</li>
+                      <li class="list-group-item">WEKA KUMBUKUMBU NAMBA <span class="fw-semibold text-dark mb-0" id="billNumberMpesa"></span></li>
                       <li class="list-group-item">WEKA KIASI</li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>
@@ -110,7 +110,7 @@
                       <li class="list-group-item">CHAGUA 5 ›LIPA BILL </li>
                       <li class="list-group-item">CHAGUA 3 › INGIZA NAMBA YA KAMPUNI </li>
                       <li class="list-group-item">NAMBA YA KAMPUNI 009009</li>
-                      <li class="list-group-item">INGIZA › KUMBUKUMBU NAMBA mf(ICTC*********)</li>
+                      <li class="list-group-item">INGIZA › KUMBUKUMBU NAMBA <span class="fw-semibold text-dark mb-0" id="billNumberAirtel"></span></li>
                       <li class="list-group-item">INGIZA KIASI </li>
                       <li class="list-group-item">INGIZA NAMBA YA SIRI</li>
                       <li class="list-group-item">THIBITISHA</li>

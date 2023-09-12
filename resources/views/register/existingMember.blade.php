@@ -297,6 +297,13 @@
                 document.getElementById('mobile').textContent = data.data.mobile;
                 document.getElementById('institution').textContent = data.data.institution;
                 document.getElementById('billNumber').textContent = data.data.bill_ref_no;
+
+
+                document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
+                document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
+                document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
+                document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
+                
                 document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString('en-US');
                 var annual_fee = data.data.annual_fee;
                 var event_fee = data.data.event_fee.toLocaleString('en-US');
@@ -327,19 +334,50 @@
                     tableBody.appendChild(row);
                 }
                 console.log(annual_fee);
-                if (data.data.bill_ref_no == "") {
+                
+                // bill is not yet generated fee_status == 2
+                if (data.data.fee_status == 2) {
+                    
                     $('#generateBillButton').show(200);
-                } else {
-                    $('#payBillButton').show(200);
-                    $('#generateBillButton').hide();
-                }
-                if (data.data.payment_reference == "") {
+                    $('#payBillButton').hide(200);
+
                     $('#cross').show(200);
                     $('#check').hide();
-                } else {
+
+                // bill is PAID fee_status == 1
+                } else if (data.data.fee_status == 1) {
+
+                    $('#generateBillButton').hide(200);
+                    $('#payBillButton').hide(200);
+
                     $('#check').show(200);
                     $('#cross').hide();
+
+                // bill was generated wait for payment fee_status == 0 
+                } else if (data.data.fee_status == 0) {
+                    
+                    $('#generateBillButton').hide(200);
+                    $('#payBillButton').show(200);
+
+                    $('#check').show(200);
+                    $('#cross').hide();
+
+
                 }
+
+                // if (data.data.bill_ref_no == "") {
+                //     $('#generateBillButton').show(200);
+                // } else {
+                //     $('#payBillButton').show(200);
+                //     $('#generateBillButton').hide();
+                // }
+                // if (data.data.payment_reference == "") {
+                //     $('#cross').show(200);
+                //     $('#check').hide();
+                // } else {
+                //     $('#check').show(200);
+                //     $('#cross').hide();
+                // }
               $('#infoDiv').show(200);
               $('#errorDiv').hide();
               
@@ -386,13 +424,26 @@
                 success: function(data) {
                     if (data.statusCode == 200) {
                         if (data.data.error == 0) {
-                            document.getElementById('successID').textContent =
-                                "Bill Generated Successful!";
+                            console.log(data.data.bill_ref_no);
+                            document.getElementById('successID').textContent ="Bill Generated Successful!";
+                            document.getElementById('billNumber').textContent =data.data.bill_ref_no;
+
+                            document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
+
+
+
+                            $('#check').show(200);
+                            $('#cross').hide();
+
                             $('#succcessDiv').show();
                             $('#payBillButton').show(200);
                             $('#generateBillButton').hide();
                         }
                         if (data.data.error == 1) {
+
                             document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
                             $('#errorDiv').show();
                         }
