@@ -454,6 +454,7 @@
                 },
                 complete: function() {
                     $('#loaderNew').hide();
+                    getRegDetails();
                 }
             });
         });

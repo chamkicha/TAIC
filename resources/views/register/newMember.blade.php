@@ -9,7 +9,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
-                        <a href="{{route('/')}}">Home</a>
+                        <a href="{{url('/')}}">Home</a>
                       </li>
                       <li class="breadcrumb-item active">Conference Registration</li>
                     </ol>

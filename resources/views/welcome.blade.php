@@ -64,7 +64,7 @@
                                 <img src="{{ asset('assets/images/logo/registered.png') }}" alt="" height="80" class="pb-2">
                                 <h5>REGISTERED ICT PROFESSIONAL.</h5>
                                 <p class="text-muted pb-1">If youre ICTC registered click button below and follow the pocedures.</p>
-                                <a href="{{  URL::to('register/1') }}" class="btn btn-soft-info">Click Here to Proceed</a>
+                                <a href="{{  URL::to('register/1') }}" class="btn btn-soft-info" style="font-size:medium">Click Here to Proceed</a>
                             </div>
                         </div>
                     </div><!-- end col -->
@@ -72,9 +72,9 @@
                         <div class="card text-center border shadow-none">
                             <div class="card-body py-5 px-4">
                                 <img src="{{ asset('assets/images/logo/ntrg.png') }}" alt="" height="55" class="mb-3 pb-2">
-                                <h5>NOT REGISTERED AND OTHERS.</h5>
+                                <h5>NON-REGISTERED AND OTHERS.</h5>
                                 <p class="text-muted pb-1">If you're not registered as ICT Professional and you want to attend Conference, please click button below and follow the pocedures.</p>
-                                <a href="{{  URL::to('register/2') }}" class="btn btn-info">Click Here to Proceed</a>
+                                <a href="{{  URL::to('register/2') }}" class="btn btn-info" style="font-size:medium">Click Here to Proceed</a>
                             </div>
                         </div>
                     </div>
