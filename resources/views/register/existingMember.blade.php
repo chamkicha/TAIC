@@ -51,8 +51,7 @@
                               </div>
                             
                               <div class="row">
-                                <div class="col-lg-6">
-                              
+                                <div class="col-lg-6">                              
                                   <div class="mb-3">
                                     <label class="form-label" for="gen-info-password-input">Registration Number</label>
                                     <input type="text" class="form-control" id="reg_no" name="reg_no" placeholder="Enter Registration Number" required>
@@ -60,9 +59,7 @@
                                   </div>
                                 </div>
                                 <div class="col-lg-6">
-                                  <div class="mt-4">
-                                    
-                                      
+                                  <div class="mt-4">   
                                       <button type="button" class="btn btn-success btn-load" onclick="getRegDetails()">
                                           <span class="d-flex align-items-center">
                                               <span id="loaderNew" style="display:none" class="spinner-border flex-shrink-0" role="status">
@@ -76,10 +73,20 @@
                                   </div>
                                 </div>
                               </div>
-  
+                              <div class="row">
+                                <div class="card" id="succcessDiv" style="display:none">
+                                  <div class="alert alert-success text-center"
+                                      style="font-size: larger" role="alert" id="successID">
+                                  </div>
+                                </div>
+                                <div class="card" id="errorDiv" style="display:none">
+                                  <div class="alert alert-danger text-center"
+                                      style="font-size: larger" role="alert" id="allertId">
+                                  </div>
+                                </div>
+                              </div>
                               <div class="card" id="infoDiv" style="display:none">
-                                  <div class="p-1">
-                            
+                                  <div class="p-1">                            
                                     <div class="row">
                                       <div class="col-lg-6"> 
                                         <div class="row">
@@ -191,16 +198,6 @@
                                     </div>  
                                   </div><!-- end card body -->
                               </div>  
-                              <div class="card" id="succcessDiv" style="display:none">
-                                <div class="alert alert-success text-center"
-                                    style="font-size: larger" role="alert" id="successID">
-                                </div>
-                              </div>
-                              <div class="card" id="errorDiv" style="display:none">
-                                <div class="alert alert-danger text-center"
-                                    style="font-size: larger" role="alert" id="allertId">
-                                </div>
-                              </div>
                             </div>
                             {{-- buttons --}}
                             <div class="d-flex align-items-start gap-3 mt-4">

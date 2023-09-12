@@ -97,17 +97,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="row">
+                                                    <div class="card" id="succcessDiv" style="display:none">
+                                                        <div class="alert alert-success text-center"
+                                                            style="font-size: larger" role="alert" id="successID">
+      
+                                                        </div>
+                                                      </div>
+                                                      <div class="card" id="errorDiv" style="display:none">
+                                                        <div class="alert alert-danger text-center"
+                                                            style="font-size: larger" role="alert" id="allertId">
+      
+                                                        </div>
+                                                      </div>
+                                                </div>
                                                 <div class="card" id="infoDiv" style="display:none">
                                                     <div class="p-1">
-
                                                         <div class="row">
                                                             <div class="col-lg-6">
-
-
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
-
                                                                         <div class="swiper-wrapper"
                                                                             id="swiper-wrapper-a6ca147977931458"
                                                                             aria-live="polite"
@@ -300,18 +309,7 @@
 
                                                     </div><!-- end card body -->
                                                 </div>
-                                                <div class="card" id="succcessDiv" style="display:none">
-                                                  <div class="alert alert-success text-center"
-                                                      style="font-size: larger" role="alert" id="successID">
-
-                                                  </div>
-                                                </div>
-                                                <div class="card" id="errorDiv" style="display:none">
-                                                  <div class="alert alert-danger text-center"
-                                                      style="font-size: larger" role="alert" id="allertId">
-
-                                                  </div>
-                                                </div>
+                                               
                                             </div>
                                             <div class="d-flex align-items-start gap-3 mt-4">
                                                 <button type="button" class="btn btn-success btn-label right ms-auto"
