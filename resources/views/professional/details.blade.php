@@ -210,7 +210,21 @@
                                                                                                         </tr>
                                                                                                     </tbody>
                                                                                                 </table>
-                                                                                                <p class="fw-semibold text-dark mt-3"
+                                                                                                <!-- Table Foot -->
+                                                                                                    <p class="fw-semibold text-dark mt-3" style="margin-bottom: 0px;">Event Fee</p>
+                                                                                                    <table class="table table-nowrap mt-0">
+                                                                                                        <thead class="table-light ">
+                                                                                                            <tr>
+                                                                                                                <th scope="col">#</th>
+                                                                                                                <th scope="col">Year</th>
+                                                                                                                <th scope="col">Price(Tsh)</th>
+                                                                                                            </tr>
+                                                                                                        </thead>
+                                                                                                        <tbody id="data_table_body">
+                                                                                                        </tbody>
+                                                                                                        
+                                                                                                    </table>
+                                                                                                {{-- <p class="fw-semibold text-dark mt-3"
                                                                                                     style="margin-bottom: 0px;">
                                                                                                     Event Fee</p>
                                                                                                 <table
@@ -259,7 +273,7 @@
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </tfoot>
-                                                                                                </table>
+                                                                                                </table> --}}
 
                                                                                             </div>
 
@@ -394,15 +408,31 @@
                             document.getElementById('mobile').textContent = data.data.mobile;
                             document.getElementById('institution').textContent = data.data.institution;
                             document.getElementById('billNumber').textContent = data.data.bill_ref_no;
-                            document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString(
-                                'en-US');
+                            // document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString(
+                            //     'en-US');
                             var event_fee = data.data.event_fee.toLocaleString('en-US');
-                            document.getElementById('total_amount').textContent = data.data.total_amount
-                                .toLocaleString('en-US', {
-                                    style: 'currency',
-                                    currency: 'TZS'
-                                });
-
+                            // document.getElementById('total_amount').textContent = data.data.total_amount
+                            //     .toLocaleString('en-US', {
+                            //         style: 'currency',
+                            //         currency: 'TZS'
+                            //     });
+                            var tableBody = document.getElementById('data_table_body');  
+                            tableBody.innerHTML = '';
+                            console.log(data.data.annual_fee);
+                            var annual_fee = data.data.annual_fee;
+                            for (var i = 0; i < annual_fee.length; i++) {
+                                    var row = document.createElement('tr');                
+                                    var idCell = document.createElement('td');
+                                    idCell.textContent = (i + 1).toString(); 
+                                    row.appendChild(idCell);                
+                                    var dateCell = document.createElement('td');
+                                    dateCell.textContent = new Date(annual_fee[i].year).toLocaleDateString();
+                                    row.appendChild(dateCell);                
+                                    var amountCell = document.createElement('td');
+                                    amountCell.textContent = annual_fee[i].amount;
+                                    row.appendChild(amountCell);                
+                                    tableBody.appendChild(row);
+                            }
                             if (data.data.bill_ref_no == "") {
                                 $('#generateBillButton').show(200);
                             } else {

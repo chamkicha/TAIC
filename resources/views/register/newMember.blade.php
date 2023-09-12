@@ -293,9 +293,7 @@ function getdistricts(value) {
                 },
 
         success: function(data){
-            if(data.statusCode == 200){
-
-             
+            if(data.statusCode == 200){            
 
             data.data.forEach(district => {
                 const optionElement = document.createElement('option');

@@ -159,7 +159,7 @@ class homeController extends Controller
             'institution' =>  ['required'],
             'sector_id' =>  ['required'],
             'nationality_id' =>  ['required'],
-            'mobile' =>  ['required'],
+            'mobile' =>  ['required','min:3','max:12'],
             'email' =>  ['required'],
         ]);
 
