@@ -1,13 +1,19 @@
 <div style="color:black">
-    <img src="{{ asset('assets/images/logo/ictc-logo.png') }}" style="border-radius:1.2rem;margin:1.2 auto;" alt="logo dark" height="80px" width="80px">
     <div class="header">
-        <h3 >Greeting, {{$name}}</h3>
+        <h3  style="font-weight: 600">Hi, </h3>
     </div>
     <div class="content" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
-        <p> <b style="font-weight:600">ICT Commission</b> is Delighted For Your Registration to Attend TAIC 2023</p>
-        <p>Please Be Informed of Your</p>
-        <p>Conference ID : <span style="color:blue;font-weight:600;">{{$conferenceID}}</span></p>
-        {{-- <p>Bill Reference Number <span style="color:blue;font-weight:600;">{{$billNumber}}</span></p> --}}
+        <p>Dear <small>{{$name}}</small></p>
+        <p> <b style="font-weight:600">Thank you</b> for booking to attend 7th Tanzania ICT Conference 2023</p>
+        <p>Please be informed that your Conference ID is : <span style="color:blue;font-weight:600;">{{$conferenceID}}</span>
+            and to Verify your participation, please process your payment through the following :
+        </p>
+        <p>Bill Reference Number :<span style="color:blue;font-weight:600;">{{$billNumber}}</span></p>
         <p>Thank You</p>
     </div>
+    <p>For further inquiry please contact ICT Commission via:</p>
+    <p>support@ictc.go.tz</p>
+    <p>info@ictc.go.tz</p>
+    <p>+255 736 848 444</p>
+    <p>+255 738 171 742</p>
 </div>

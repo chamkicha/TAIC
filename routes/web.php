@@ -20,7 +20,7 @@ Route::namespace('App\Http\Controllers\Home')->group(function () {
     Route::get('/register/{isReg}', 'homeController@register');
 });
 
-Route::get('/send-mail/{slug}',[homeController::class,'mailingUser']);
+// Route::get('/send-mail/{slug}',[homeController::class,'mailingUser'])->name('mailingUser');
 Route::post('/process-regno', [homeController::class, 'processRegistrationNumber'])->name('process.regno');
 Route::get('/memberDetails/{reg_no}', [homeController::class, 'memberDetails'])->name('memberDetails');
 Route::post('/memberDetails/process-bill/', [homeController::class, 'generateBill'])->name('generateBill');

@@ -17,36 +17,33 @@ class homeController extends Controller
     public function index(){
         return view('welcome');
     }
-    public function mailingUser($reg_no){
-        $URL  = baseURL().'/process-regno';        
-        try{
-            $result  =  Http::post($URL,['reg_no'=>$reg_no]);
-            $result = json_decode($result);
-            // dd($result);
-            if ($result->error==1){
-                Toastr::error($result->message, 'Failed');
-                return redirect()->back();
-            }
-            else{
-                $data  = $result->member_data;
-                // dd($data);
-                $name = $data->first_name;
-                $email = $data->email;
-                $billNumber = $data->bill_ref_no;
-                Mail::to($email)
-                ->send(new MailSender ,$name,$billNumber,$reg_no);
-                Toastr::success('Please Check your Email');
-                return redirect()->back();
-            }
-        }
-        catch (Exception $error) {
-            return response()->json([
-                'statusCode' => 402,
-                'message' => 'something went wrong.',
-                'error' => $error,
-            ]);
-        }
-    }
+    // public function mailingUser($reg_no){
+    //     $URL  = baseURL().'/process-regno';        
+    //     try{
+    //         $result  =  Http::post($URL,['reg_no'=>$reg_no]);
+    //         $result = json_decode($result);
+    //         // dd($result);
+    //         if ($result->error==1){
+    //             Toastr::error($result->message, 'Failed');
+    //             return redirect()->back();
+    //         }
+    //         else{
+    //             $data  = $result->member_data;
+    //             $email = $data->email;
+    //             Mail::to($email)
+    //             ->send(new MailSender($data));
+    //             Toastr::success('Please Check your Email');
+    //             return redirect()->back();
+    //         }
+    //     }
+    //     catch (Exception $error) {
+    //         return response()->json([
+    //             'statusCode' => 402,
+    //             'message' => 'something went wrong.',
+    //             'error' => $error,
+    //         ]);
+    //     }
+    // }
 
     public function register($isReg){
         $isReg = $isReg;
@@ -231,19 +228,26 @@ class homeController extends Controller
     public function generateBill(Request $request){
         $URL  = baseURL().'/process-bill';
         try{
-        $result  =  Http::post($URL,
-            [
-                'reg_no'=>$request->reg_no
-            ]
-        );
+        $result  =  Http::post($URL,['reg_no'=>$request->reg_no]);
         $result = json_decode($result);
-        
-            $responseData = [
-                'statusCode' => 200,
-                'data'  => $result,
-                'message' => 'successfully get data'
-                ];
-            return response()->json($responseData, Response::HTTP_OK);
+        if ($result->error== 0){
+            $data  = $result;
+            $email = $data->member_data->email;
+            Mail::to($email)
+                    ->send(new MailSender($data));
+            Toastr::success('Please Check your Email');
+            return redirect()->back();            
+        }
+        else{
+            Toastr::error($result->message, 'Failed');
+            return redirect()->back();
+        }      
+        $responseData = [
+            'statusCode' => 200,
+            'data'  => $result,
+            'message' => 'successfully get data'
+            ];
+        return response()->json($responseData, Response::HTTP_OK);
 
         }catch (Exception $error) {
             return response()->json([

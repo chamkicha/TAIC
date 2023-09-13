@@ -238,7 +238,7 @@
                                                                                                             </th>
                                                                                                             <th
                                                                                                                 scope="col">
-                                                                                                                Price(TZS)
+                                                                                                                Price(TSh)
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </thead>
@@ -400,7 +400,7 @@
                             document.getElementById('total_amount').textContent = data.data.total_amount
                                 .toLocaleString('en-US', {
                                     style: 'currency',
-                                    currency: 'TZS'
+                                    currency: 'TSh'
                                 });
                             
                             // bill is not yet generated fee_status == 2
@@ -496,6 +496,5 @@
 
                     }
                 });
-                window.location.href = window.location.href;
             });
         </script>

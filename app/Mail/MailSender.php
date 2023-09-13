@@ -16,7 +16,7 @@ class MailSender extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(protected $data)
     {
         //
     }
@@ -38,10 +38,11 @@ class MailSender extends Mailable
     {
         return new Content(
             view: 'mail.contentMail ',
-            with: [
-                'name' => "Adim",
-                'conferenceID' =>"1122333",
-            ],
+            with:[
+                'name'=> $this->data->member_data->first_name.' '.$this->data->member_data->last_name,
+                'billNumber'=> $this->data->bill_ref_no,
+                'conferenceID'=> $this->data->member_data->reg_no,
+                ]
         );
     }
 

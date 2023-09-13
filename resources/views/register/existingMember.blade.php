@@ -143,7 +143,7 @@
                                                                           <tr>
                                                                               <th scope="col">#</th>
                                                                               <th scope="col">Year</th>
-                                                                              <th scope="col">Price(TZS)</th>
+                                                                              <th scope="col">Price(TSh)</th>
                                                                           </tr>
                                                                       </thead>
                                                                       <tbody id="data_table_body">
@@ -157,7 +157,7 @@
                                                                           <tr>
                                                                               <th scope="col">#</th>
                                                                               <th scope="col">Year</th>
-                                                                              <th scope="col">Price(TZS)</th>
+                                                                              <th scope="col">Price(TSh)</th>
                                                                           </tr>
                                                                       </thead>
                                                                      
@@ -306,7 +306,7 @@
                 var event_fee = data.data.event_fee.toLocaleString('en-US');
                 document.getElementById('total_amount').textContent = data.data.total_amount.toLocaleString('en-US', {
                                         style: 'currency',
-                                        currency: 'TZS'
+                                        currency: 'TSh'
                                     });
   
                                     var tableBody = document.getElementById('data_table_body');
