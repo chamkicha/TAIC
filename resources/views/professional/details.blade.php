@@ -404,31 +404,25 @@
                                 });
                             
                             // bill is not yet generated fee_status == 2
-                if (data.data.fee_status == 2) {
-                    
+                if (data.data.fee_status == 2) {                    
                     $('#generateBillButton').show(200);
                     $('#payBillButton').hide(200);
-
                     $('#cross').show(200);
                     $('#check').hide();
 
                 // bill is PAID fee_status == 1
                 } else if (data.data.fee_status == 1) {
-
                     $('#generateBillButton').hide(200);
                     $('#payBillButton').hide(200);
-
                     $('#check').show(200);
                     $('#cross').hide();
 
                 // bill was generated wait for payment fee_status == 0 
-                } else if (data.data.fee_status == 0) {
-                    
+                } else if (data.data.fee_status == 0) {                    
                     $('#generateBillButton').hide(200);
                     $('#payBillButton').show(200);
-
-                    $('#check').show(200);
-                    $('#cross').hide();
+                    $('#check').hide(200);
+                    $('#cross').show();
 
 
                 }
@@ -475,8 +469,7 @@
                     success: function(data) {
                         if (data.statusCode == 200) {
                             if (data.data.error == 0) {
-                                document.getElementById('successID').textContent =
-                                    "Bill Generated Successful!";
+                                document.getElementById('successID').textContent ="Bill Generated Successful!";
                                 $('#succcessDiv').show();
                                 $('#payBillButton').show(200);
                                 $('#generateBillButton').hide();
