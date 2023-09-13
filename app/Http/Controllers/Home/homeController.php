@@ -3,17 +3,25 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailSender;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Http;
 use Toastr;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class homeController extends Controller
 {
     public function index(){
         return view('welcome');
+    }
+    public function mailingUser($reg_no){
+        $email = $reg_no;
+        Mail::to($email)
+        ->send(new MailSender);
+        return redirect('/');
     }
 
     public function register($isReg){
