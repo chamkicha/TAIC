@@ -16,10 +16,10 @@ class SendMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($reg_no)
-    {
-        //
-    }
+    public function __construct(
+        protected $data,
+    )
+    {    }
 
     /**
      * Get the message envelope.
@@ -34,10 +34,15 @@ class SendMail extends Mailable
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    public function content($name,$billNumber,$reg_no): Content
     {
         return new Content(
             view: 'view.name',
+            with:[
+                'name'=> $name,
+                'billNumber'=> $billNumber,
+                'conferenceID'=> $reg_no,
+                ]
         );
     }
 

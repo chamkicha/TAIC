@@ -18,14 +18,37 @@ class homeController extends Controller
         return view('welcome');
     }
     public function mailingUser($reg_no){
-        $email = $reg_no;
-        Mail::to($email)
-        ->send(new MailSender);
-        return redirect('/');
+        $URL  = baseURL().'/process-regno';        
+        try{
+            $result  =  Http::post($URL,['reg_no'=>$reg_no]);
+            $result = json_decode($result);
+            // dd($result);
+            if ($result->error==1){
+                Toastr::error($result->message, 'Failed');
+                return redirect()->back();
+            }
+            else{
+                $data  = $result->member_data;
+                // dd($data);
+                $name = $data->first_name;
+                $email = $data->email;
+                $billNumber = $data->bill_ref_no;
+                Mail::to($email)
+                ->send(new MailSender ,$name,$billNumber,$reg_no);
+                Toastr::success('Please Check your Email');
+                return redirect()->back();
+            }
+        }
+        catch (Exception $error) {
+            return response()->json([
+                'statusCode' => 402,
+                'message' => 'something went wrong.',
+                'error' => $error,
+            ]);
+        }
     }
 
     public function register($isReg){
-
         $isReg = $isReg;
         $sectors = sector();
         $professional_categories = professional_category();
@@ -70,16 +93,9 @@ class homeController extends Controller
 
     public function memberDetails($reg_no)
     {
-
-
-        $URL  = baseURL().'/process-regno';
-        
-       
+        $URL  = baseURL().'/process-regno';        
         try{
-        $result  =  Http::post($URL,
-            [
-                'reg_no'=>$reg_no
-            ]
+        $result  =  Http::post($URL,['reg_no'=>$reg_no]
         );
         $result = json_decode($result);
         // dd($result);
@@ -88,8 +104,7 @@ class homeController extends Controller
             Toastr::error($result->message, 'Failed');
             return redirect()->back()->withInput();
         }
-            $data  = $result->member_data;
-                
+            $data  = $result->member_data;                
             return view('professional.view',compact('data'));
 
         }catch (Exception $error) {
@@ -100,19 +115,13 @@ class homeController extends Controller
             ]);
         }
 
-
     }
-    
     public function districts(Request $request){
 
-
-        $URL  = baseURL().'/districts/'.$request->region_id;
-        
-       
+        $URL  = baseURL().'/districts/'.$request->region_id;        
         try{
         $result  =  Http::get($URL);
-        $result = json_decode($result);
-        
+        $result = json_decode($result);        
             $responseData = [
                 'statusCode' => 200,
                 'data'  => $result,
@@ -131,22 +140,16 @@ class homeController extends Controller
     }
 
     public function wards(Request $request){
-
-
-        $URL  = baseURL().'/wards/'.$request->district_id;
-        
-       
+        $URL  = baseURL().'/wards/'.$request->district_id;        
         try{
         $result  =  Http::get($URL);
         $result = json_decode($result);
-        
             $responseData = [
                 'statusCode' => 200,
                 'data'  => $result,
                 'message' => 'successfully get wards'
                 ];
             return response()->json($responseData, Response::HTTP_OK);
-
         }catch (Exception $error) {
             return response()->json([
                 'statusCode' => 402,
@@ -157,9 +160,7 @@ class homeController extends Controller
 
     }
 
-    public function submitRegForm(Request $request){
-        // dd($request);
-
+    public function submitRegForm(Request $request){ 
         $validator = Validator::make($request->all(), [
             'first_name' =>  ['required'],
             'last_name' =>  ['required'],
@@ -170,24 +171,18 @@ class homeController extends Controller
             'mobile' =>  ['required','min:3','max:12'],
             'email' =>  ['required'],
         ]);
-
         if ($validator->fails()) {
-
             $errors = implode('<br>', $validator->errors()->all());
             Toastr::error($errors, 'Field');
             return redirect()->back()->withInput();
         }
-
-
         $URL  = baseURL().'/register-ictc-member';
         if($request->nationality_id != '223'){
             $ward_id = 0;
             $street = '';
-
         }else{
             $ward_id = $request->ward_id;
             $street = $request->street;
-
         }
         try{
         $data = [
