@@ -3,7 +3,9 @@
 if (!function_exists('baseURL')) {
     function baseURL()
     {
-        return 'http://41.59.227.219/membership';
+        // return 'http://41.59.227.219/membership'; test API
+        return 'http://41.59.228.145:2023';
+        
     }
 }
 

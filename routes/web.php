@@ -18,6 +18,7 @@ use App\Http\Controllers\Home\homeController;
 Route::namespace('App\Http\Controllers\Home')->group(function () {
     Route::get('/', 'homeController@index');
     Route::get('/register/{isReg}', 'homeController@register');
+    Route::get('/billPdf/{reg_no}', 'homeController@Billpdf');
 });
 
 // Route::get('/send-mail/{slug}',[homeController::class,'mailingUser'])->name('mailingUser');

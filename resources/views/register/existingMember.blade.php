@@ -181,7 +181,11 @@
                                                                 </div> 
                                                             </div>
                                                             <div class="node-card">
-                                                                <p>Please! Note Down Your Bill No. For Future Reference</p>
+                                                                <p>Please! Note Down Your
+                                                                                                Bill No. For
+                                                                                                Future Reference</p>
+
+                                                            <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
                                                             </div>
                                                         </div>
                                                         <!-- end card body -->
@@ -275,7 +279,12 @@
   
       let reg_no = document.getElementById('reg_no').value;
       var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-      
+
+
+      var downloadBillBtn = document.getElementById("downloadBillBtn");
+
+      downloadBillBtn.href = "{{ URL::to('/billPdf/') }}" + "/" + reg_no;
+
       $.ajax({
           type: 'POST',
           url: '{!!URL::to('process-regno')!!}',

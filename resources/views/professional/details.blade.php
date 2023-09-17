@@ -276,9 +276,7 @@
 
                                                                                         </div>
                                                                                         <div class="node-card">
-                                                                                            <p>Please! Note Down Your
-                                                                                                Bill No. For
-                                                                                                Future Reference</p>
+                                                                                            <p>Please check your Email</p>
                                                                                         </div>
                                                                                     </div>
                                                                                     <!-- end card body -->

@@ -11,6 +11,7 @@ use Toastr;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
+use PDF;
 
 class homeController extends Controller
 {
@@ -256,6 +257,26 @@ class homeController extends Controller
                 'error' => $error,
             ]);
         }
+    }
+
+    public function Billpdf($reg_no){
+        
+        $URL  = baseURL().'/process-regno';    
+
+        $result  =  Http::post($URL,['reg_no'=>$reg_no]
+        );
+        $result = json_decode($result);
+
+      $data = $result->member_data;
+
+    //   return view('bill.bill', compact('data'));
+      $pdf = PDF::loadView('bill.bill', compact('data'));
+
+      $filename = $data->bill_ref_no . '.pdf';
+      
+      return $pdf->download($filename);
+
+      
     }
 
     
