@@ -217,6 +217,8 @@
                                                                         </div>
                                                                         <div class="node-card">
                                                                             <p>Please check your Email</p>
+                                                                           <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
+
                                                                         </div>
                                                                     </div>
                                                                     <!-- end card body -->
