@@ -32,7 +32,19 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ url('/') }}">
-                        <span data-key="t-dashboards" style="color:rgb(127, 161, 255);font-size:larger;">Home</span>
+                        <span data-key="t-dashboards" class="left-nav-link">
+                            <i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>
+                            Home
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ url('/') }}">
+                        <span data-key="t-dashboards" 
+                        class="left-nav-link">
+                            <i class="ri-arrow-down-line label-icon align-middle fs-16 ms-2"></i>
+                            Generate Receipt
+                        </span>
                     </a>
                 </li>
 

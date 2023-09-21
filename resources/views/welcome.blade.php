@@ -57,6 +57,49 @@
         <!-- start wallet -->
         <section class="section" id="register">
             <div class="container">
+                <div class="row">
+                    <!-- Button trigger modal -->
+                    <div class="modal fade" 
+                        id="nonprof" tabindex="-1" 
+                        aria-labelledby="nonprofLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">7<sup>th</sup> TAIC Online Registration Guide</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                        @include('howToRegister2')
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" 
+                                        data-bs-dismiss="modal">Close</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" 
+                        id="regprof" tabindex="-1" 
+                        aria-labelledby="regprofLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">7<sup>th</sup> TAIC Online Registration Guide</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                        @include('howToRegister')
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" 
+                                        data-bs-dismiss="modal">Close</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row g-4 mt-2">
                     <div class="col-lg-6">
                         <div class="card text-center border shadow-none">
@@ -65,6 +108,10 @@
                                 <h5>REGISTERED ICT PROFESSIONAL.</h5>
                                 <p class="text-muted pb-1">If youre ICTC registered click button below and follow the pocedures.</p>
                                 <a href="{{  URL::to('register/1') }}" class="btn btn-soft-info" style="font-size:medium">Click Here to Proceed</a>
+                                <button type="button" class="btn btn-warning"  style="font-size:large"
+                                        data-bs-toggle="modal" data-bs-target="#regprof">
+                                        ?
+                                </button>  
                             </div>
                         </div>
                     </div><!-- end col -->
@@ -75,6 +122,10 @@
                                 <h5>NON-REGISTERED AND OTHERS.</h5>
                                 <p class="text-muted pb-1">If you're not registered as ICT Professional and you want to attend Conference, please click button below and follow the pocedures.</p>
                                 <a href="{{  URL::to('register/2') }}" class="btn btn-info" style="font-size:medium">Click Here to Proceed</a>
+                                <button type="button" class="btn btn-warning"  style="font-size:large"
+                                        data-bs-toggle="modal" data-bs-target="#nonprof">
+                                        ?
+                                </button>  
                             </div>
                         </div>
                     </div>
@@ -87,8 +138,7 @@
 
         <!-- Start footer -->
         <footer class="custom-footer bg-dark py-5 position-relative">
-            <div class="container">
-                
+            <div class="container">      
             
 
                 <div class="row text-center text-sm-start align-items-center mt-5">

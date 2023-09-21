@@ -29,4 +29,9 @@ Route::post('/memberDetails/process-bill/', [homeController::class, 'generateBil
 Route::post('/submitRegForm', [homeController::class, 'submitRegForm'])->name('submitRegForm');
 Route::post('/districts', [homeController::class, 'districts'])->name('districts');
 Route::post('/wards', [homeController::class, 'wards'])->name('wards');
+//==================================================================
+
+Route::get('/guide-to-register', function(){
+    return view('howToRegister');
+})->name('guideToRegister');
 

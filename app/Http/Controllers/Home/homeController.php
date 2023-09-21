@@ -18,33 +18,6 @@ class homeController extends Controller
     public function index(){
         return view('welcome');
     }
-    // public function mailingUser($reg_no){
-    //     $URL  = baseURL().'/process-regno';        
-    //     try{
-    //         $result  =  Http::post($URL,['reg_no'=>$reg_no]);
-    //         $result = json_decode($result);
-    //         // dd($result);
-    //         if ($result->error==1){
-    //             Toastr::error($result->message, 'Failed');
-    //             return redirect()->back();
-    //         }
-    //         else{
-    //             $data  = $result->member_data;
-    //             $email = $data->email;
-    //             Mail::to($email)
-    //             ->send(new MailSender($data));
-    //             Toastr::success('Please Check your Email');
-    //             return redirect()->back();
-    //         }
-    //     }
-    //     catch (Exception $error) {
-    //         return response()->json([
-    //             'statusCode' => 402,
-    //             'message' => 'something went wrong.',
-    //             'error' => $error,
-    //         ]);
-    //     }
-    // }
 
     public function register($isReg){
         $isReg = $isReg;
@@ -232,11 +205,11 @@ class homeController extends Controller
         $result  =  Http::post($URL,['reg_no'=>$request->reg_no]);
         $result = json_decode($result);
         if ($result->error== 0){
-            $data  = $result;
-            $email = $data->member_data->email;
-            Mail::to($email)
-                    ->send(new MailSender($data));
-            Toastr::success('Please Check your Email');
+            // $data  = $result;
+            // $email = $data->member_data->email;
+            // Mail::to($email)
+            //         ->send(new MailSender($data));
+            // Toastr::success('Please Check your Email');
             return redirect()->back();            
         }
         else{

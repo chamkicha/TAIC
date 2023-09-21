@@ -300,17 +300,13 @@
                                             <div class="d-flex align-items-start gap-3 mt-4">
                                                 <button type="button" class="btn btn-success btn-label right ms-auto"
                                                     id="generateBillButton" style="display:none">
-                                                    <i
-                                                        class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate
-                                                    Bill
+                                                    <i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate Bill
                                                 </button>
                                                 <button type="button"
                                                     class="btn btn-success btn-label right ms-auto nexttab nexttab"
                                                     data-nexttab="pills-info-desc-tab" id="payBillButton"
                                                     style="display:none">
-                                                    <i
-                                                        class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Pay
-                                                    Bill
+                                                    <i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Pay Bill
                                                 </button>
                                             </div>
                                         </div>

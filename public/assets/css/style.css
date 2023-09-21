@@ -6,12 +6,54 @@
 .node-card p{
     font-size: larger;
     color:#4d1313;
-    margin: .1rem .2rem;
-
 }
 
 #billNumber{
     color:white;
     background-color: #4d1313;
     border-radius: .25rem;
+}
+
+.left-nav-link {
+    color:#04ec78;font-size:larger;
+}
+.left-nav-link:hover {
+    color:#67ecaa;font-size:larger;
+    border-radius: .5rem;
+}
+
+.reg-btn{
+    margin:.2rem 1.4rem;
+}
+.reg-btn a{
+    align-items: end;
+    background-color: #1c62e4;
+    color:white;
+    border-radius: .5rem;
+    padding:.2rem .4rem;
+    margin: .5rem .3rem;
+}
+.reg-btn a:hover{
+    color: #ffefef;
+    background-color: #015aff;
+}
+.guide-list ul{
+    list-style-type: none;
+    margin: .3rem .2rem;
+    border-bottom: .2rem solid rgb(248, 228, 228);
+    border-radius: .9rem;
+}
+.guide-list ul li {
+    margin: .4rem .2rem;
+    padding: .3rem;
+    border-radius: .5rem;
+    background-color: #f5eec0;
+}
+.guide-list ul li span{
+    font-size: large;
+    color: rgb(15, 117, 117);
+}
+.guide-list ul li  em{
+    font-weight: 600;
+    color: #4d1313;
 }
