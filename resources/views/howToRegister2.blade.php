@@ -7,7 +7,7 @@
                 </a>  
             </div>
             <div class="col-6">
-                <a  href="https://registertaic.ictc.go.tz"
+                <a  href="https://play.google.com/store/apps/details?id=com.ncard.taic"
                         target="_blank">Download App.
                 </a>
             </div>
