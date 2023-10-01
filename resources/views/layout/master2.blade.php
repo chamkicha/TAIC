@@ -107,6 +107,8 @@
     <script src="{{ asset('assets/js/pages/form-wizard.init.js') }}"></script>
     <!-- App js -->
      <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/CustomJs.js') }}"></script>
+
 
     @stack('custom-scripts')
 

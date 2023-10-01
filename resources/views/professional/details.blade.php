@@ -275,6 +275,21 @@
                                                                                             </div>
 
                                                                                         </div>
+                                                                                        <div class="row  mt-2">
+                                                                                            <div class="col d-flex justify-content-center">
+                                                                                              <div id="wapper">
+                                                                                                <h3>Select Payment Option <i class="ri-arrow-down-line label-icon align-middle fs-16 ms-2"></i></h3>
+                                                                                                <div class="style1">
+                                                                                                  <select class="select">
+                                                                                                    <option value="0">Choose Payment Mode</option>
+                                                                                                    <option value="1">GePG - Control Number Payment</option>
+                                                                                                    <option value="2">Ncard - Bill Number Payment</option>
+                                                                                                  </select>
+                                                                                                </div>
+                                                                                                <div id="event-change"></div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
                                                                                         <div class="node-card">
                                                                                             <p>Please check your Email</p>
                                                                                             <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>

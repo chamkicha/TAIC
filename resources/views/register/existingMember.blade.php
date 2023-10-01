@@ -180,13 +180,26 @@
                                                                   </table>  
                                                                 </div> 
                                                             </div>
-                                                            <div class="node-card">
-                                                                <p>Please! Note Down Your
-                                                                                                Bill No. For
-                                                                                                Future Reference</p>
-
-                                                            <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
+                                                            
+                                                            <div class="row  mt-2">
+                                                              <div class="col d-flex justify-content-center">
+                                                                <div id="wapper">
+                                                                  <h3>Select Payment Option <i class="ri-arrow-down-line label-icon align-middle fs-16 ms-2"></i></h3>
+                                                                  <div class="style1">
+                                                                    <select class="select">
+                                                                      <option value="0">Choose Payment Mode</option>
+                                                                      <option value="1">GePG - Control Number Payment</option>
+                                                                      <option value="2">Ncard - Bill Number Payment</option>
+                                                                    </select>
+                                                                  </div>
+                                                                  <div id="event-change"></div>
+                                                                </div>
+                                                              </div>
                                                             </div>
+                                                            <div class="node-card">
+                                                              <p>Please! Note Down Your Bill No. For Future Reference</p>
+                                                              <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
+                                                          </div>
                                                         </div>
                                                         <!-- end card body -->
                                                     </div>
@@ -207,9 +220,7 @@
                             <div class="d-flex align-items-start gap-3 mt-4">
                                 <button type="button" class="btn btn-success btn-label right ms-auto"
                                     id="generateBillButton" style="display:none">
-                                    <i
-                                        class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate
-                                    Bill
+                                    <i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate Bill
                                 </button>
                                 <button type="button"
                                     class="btn btn-success btn-label right ms-auto nexttab nexttab"
