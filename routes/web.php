@@ -25,6 +25,8 @@ Route::namespace('App\Http\Controllers\Home')->group(function () {
 Route::post('/process-regno', [homeController::class, 'processRegistrationNumber'])->name('process.regno');
 Route::get('/memberDetails/{reg_no}', [homeController::class, 'memberDetails'])->name('memberDetails');
 Route::post('/memberDetails/process-bill/', [homeController::class, 'generateBill'])->name('generateBill');
+Route::post('/memberDetails/process-bill-gepg/', [homeController::class, 'generateBillGepg'])->name('generateBillGepg');
+Route::post('/memberDetails/check-control-no/', [homeController::class, 'checkControlNo'])->name('checkControlNo');
 
 Route::post('/submitRegForm', [homeController::class, 'submitRegForm'])->name('submitRegForm');
 Route::post('/districts', [homeController::class, 'districts'])->name('districts');

@@ -37,6 +37,7 @@ class homeController extends Controller
             ['reg_no'=>$request->reg_no]
         );
         $result = json_decode($result);
+        // dd($result);
         if ($result->error==1)
                 {
                     $responseData = [
@@ -199,11 +200,13 @@ class homeController extends Controller
         }
 
     }
-    public function generateBill(Request $request){
+
+    public function generateBill_old(Request $request){
         $URL  = baseURL().'/process-bill';
         try{
         $result  =  Http::post($URL,['reg_no'=>$request->reg_no]);
         $result = json_decode($result);
+        dd($result);
         if ($result->error== 0){
             // $data  = $result;
             // $email = $data->member_data->email;
@@ -231,6 +234,113 @@ class homeController extends Controller
             ]);
         }
     }
+
+    
+    public function generateBill(Request $request)
+    {
+        $URL  = baseURL().'/process-bill';      
+        try{
+        $result  =  Http::post($URL,
+            ['reg_no'=>$request->reg_no]
+        );
+        $result = json_decode($result);
+        // dd($result);
+        if ($result->error==1)
+                {
+                    $responseData = [
+                        'statusCode' => 400,
+                        'reg_no' => $request->reg_no,
+                        'message' => $result->message
+                        ];
+                    return response()->json($responseData, Response::HTTP_OK);
+                }
+            $responseData = [
+                'statusCode' => 200,
+                'reg_no' => $request->reg_no,
+                'data'  => $result->member_data,
+                'message' => 'successfully get data'
+                ];
+            return response()->json($responseData, Response::HTTP_OK);
+        }catch (Exception $error) {
+            return response()->json([
+                'statusCode' => 402,
+                'message' => 'something went wrong.',
+                'error' => $error,
+            ]);
+        }
+    }
+
+    
+    public function generateBillGepg(Request $request)
+    {
+        $URL  = baseURL().'/process-bill-gepg';      
+        try{
+        $result  =  Http::post($URL,
+            ['reg_no'=>$request->reg_no]
+        );
+        $result = json_decode($result);
+        // dd($result);
+        if ($result->error==1)
+                {
+                    $responseData = [
+                        'statusCode' => 400,
+                        'reg_no' => $request->reg_no,
+                        'message' => $result->message
+                        ];
+                    return response()->json($responseData, Response::HTTP_OK);
+                }
+            $responseData = [
+                'statusCode' => 200,
+                'reg_no' => $request->reg_no,
+                'data'  => $result->member_data,
+                'message' => 'successfully get data'
+                ];
+            return response()->json($responseData, Response::HTTP_OK);
+        }catch (Exception $error) {
+            return response()->json([
+                'statusCode' => 402,
+                'message' => 'something went wrong.',
+                'error' => $error,
+            ]);
+        }
+    }
+
+
+    public function checkControlNo(Request $request)
+    {
+        $URL  = baseURL().'/process-bill-gepg';      
+        try{
+        $result  =  Http::post($URL,
+            ['reg_no'=>$request->reg_no]
+        );
+        $result = json_decode($result);
+        // dd($result);
+        if ($result->error==1)
+                {
+                    $responseData = [
+                        'statusCode' => 400,
+                        'reg_no' => $request->reg_no,
+                        'message' => $result->message
+                        ];
+                    return response()->json($responseData, Response::HTTP_OK);
+                }
+            $responseData = [
+                'statusCode' => 200,
+                'reg_no' => $request->reg_no,
+                'data'  => $result->member_data,
+                'message' => 'successfully get data'
+                ];
+            return response()->json($responseData, Response::HTTP_OK);
+        }catch (Exception $error) {
+            return response()->json([
+                'statusCode' => 402,
+                'message' => 'something went wrong.',
+                'error' => $error,
+            ]);
+        }
+    }
+
+    
 
     public function Billpdf($reg_no){
         

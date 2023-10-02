@@ -275,22 +275,54 @@
                                                                                             </div>
 
                                                                                         </div>
-                                                                                        <div class="row  mt-2">
-                                                                                            <div class="col d-flex justify-content-center">
-                                                                                              <div id="wapper">
-                                                                                                <h3>Select Payment Option <i class="ri-arrow-down-line label-icon align-middle fs-16 ms-2"></i></h3>
-                                                                                                <div class="style1">
-                                                                                                  <select class="select">
-                                                                                                    <option value="0">Choose Payment Mode</option>
-                                                                                                    <option value="1">GePG - Control Number Payment</option>
-                                                                                                    <option value="2">Ncard - Bill Number Payment</option>
-                                                                                                  </select>
+
+                                                                                        <div id="paymentoptionDiv">
+                                                                                            <div class="row  mt-2">
+                                                                                                <div class="col d-flex justify-content-center">
+                                                                                                <div id="wapper">
+                                                                                                    <h3>Select Payment Option</h3>
+                                                                                                
                                                                                                 </div>
-                                                                                                <div id="event-change"></div>
-                                                                                              </div>
+                                                                                                </div>
                                                                                             </div>
-                                                                                          </div>
-                                                                                        <div class="node-card">
+
+                                                                                            <div class="row g-4 align-items">
+                                                                                                <div class="col-lg-6 col-sm-6">
+                                                                                                <a onclick="generateControlNoGepg()">
+                                                                                                    <div >
+                                                                                                        <div class="form-check card-radio" style="text-align: center;">
+                                                                                                            <label class="form-check-label" >
+                                                                                                                <img class="rounded-circle avatar-md" alt="gprg" src="{{ asset('assets/images/gpeg.png') }}">
+                                                                                                            </br>
+                                                                                                                <span class="fs-14 text-wrap">GePG - Control Number Payment</span>
+                                                                                                            </label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    </a>
+                                                                                                </div>
+
+                                                                                                <div class="col-lg-6 col-sm-6">
+                                                                                                    <a onclick="generateControlNoNcard()">
+                                                                                                    <div >
+                                                                                                        <div class="form-check card-radio" style="text-align: center;">
+                                                                                                            <label class="form-check-label">
+                                                                                                                <img class="avatar-md" style="width:50%" alt="ncard" src="{{ asset('assets/images/ncard.png') }}">
+                                                                                                            </br>
+                                                                                                                <span class="fs-14 text-wrap">Ncard - Bill Number Payment</span>
+                                                                                                            </label>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    </a>
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        
+
+
+
+                                                                                        <div class="node-card mt-5">
                                                                                             <p>Please check your Email</p>
                                                                                             <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
 
@@ -305,7 +337,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-6" style="z-index: -100;">
 
                                                             </div>
                                                         </div>
@@ -316,7 +348,7 @@
                                             </div>
                                             <div class="d-flex align-items-start gap-3 mt-4">
                                                 <button type="button" class="btn btn-success btn-label right ms-auto"
-                                                    id="generateBillButton" style="display:none">
+                                                    id="generateBillButton_old" style="display:none">
                                                     <i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Generate Bill
                                                 </button>
                                                 <button type="button"
@@ -361,6 +393,153 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- provide the csrf token -->
         <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
+        <script>
+            //data when the button is clicked
+            function generateControlNoGepg() {
+                // JSON data to be sent
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                let reg_no = document.getElementById('reg_no').value;
+
+                const jsonData = {
+                    _token: CSRF_TOKEN,
+                    reg_no: reg_no,
+                };
+                // const endpoint = "http://41.59.227.219/membership/process-bill";   
+                $.ajax({
+                    type: 'POST',
+                    url: '{!! URL::to('memberDetails/process-bill-gepg/') !!}',
+                    data: {
+                        _token: CSRF_TOKEN,
+                        reg_no: reg_no
+                    },
+                    beforeSend: function() {
+                        $('#loaderNew').show();
+                    },
+                    success: function(data) {
+                        if (data.statusCode == 200) {
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '{!! URL::to('memberDetails/check-control-no/') !!}',
+                                data: {
+                                    _token: CSRF_TOKEN,
+                                    reg_no: reg_no
+                                },
+                                success: function(data) {
+                                    console.log(data);
+                                    console.log('mimi');
+                                    if (data.statusCode == 200) {
+
+
+                                    document.getElementById('successID').textContent ="Bill Generated Successful!";
+                                    $('#succcessDiv').show();
+                                    $('#payBillButton').show(200);
+                                    $('#generateBillButtonDiv').hide();
+                                    $('#paymentoptionDiv').hide();
+                                    
+                                    }else{
+
+
+
+                                    document.getElementById('successID').textContent ="Failed To generate Bill!";
+                                    $('#succcessDiv').hide();
+                                    $('#payBillButton').hide(200);
+                                    $('#generateBillButtonDiv').show();
+                                    $('#paymentoptionDiv').show();
+
+                                    }
+                                },
+                                error: function() {
+                                    console.log('Server Error')
+                                },
+                            });
+                            
+                        }
+                    },
+                    error: function() {
+                        console.log('Server Error')
+                    },
+                    complete: function() {
+                        $('#loaderNew').hide();
+                    getRegDetails();
+
+                    }
+                });
+            }
+
+
+            //data when the button is clicked
+            function generateControlNoNcard() {
+                // JSON data to be sent
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                let reg_no = document.getElementById('reg_no').value;
+
+                const jsonData = {
+                    _token: CSRF_TOKEN,
+                    reg_no: reg_no,
+                };
+                // const endpoint = "http://41.59.227.219/membership/process-bill";   
+                $.ajax({
+                    type: 'POST',
+                    url: '{!! URL::to('memberDetails/process-bill/') !!}',
+                    data: {
+                        _token: CSRF_TOKEN,
+                        reg_no: reg_no
+                    },
+                    beforeSend: function() {
+                        $('#loaderNew').show();
+                    },
+                    success: function(data) {
+                        if (data.statusCode == 200) {
+                            
+                            
+                        if (data.data.error == 0) {
+                            console.log(data.data.bill_ref_no);
+                            document.getElementById('successID').textContent ="Bill Generated Successful!";
+                            document.getElementById('billNumber').textContent =data.data.bill_ref_no;
+
+                            document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
+                            document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
+                            $('#paymentoptionDiv').hide();
+
+                            if (data.data.payment_reference == "") {
+                                $('#cross').show(200);
+                                $('#check').hide();
+                            } else {
+                                $('#check').show(200);
+                                $('#cross').hide();
+                            }
+
+                            $('#succcessDiv').show();
+                            $('#payBillButton').show(200);
+                            $('#generateBillButtonDiv').hide();
+                        }
+                        if (data.data.error == 1) {
+
+                            document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
+                            $('#paymentoptionDiv').show(200);
+                            $('#errorDiv').show();
+                        }
+                        }
+                    },
+                    error: function() {
+                        console.log('Server Error')
+                    },
+                    complete: function() {
+                        $('#loaderNew').hide();
+                    getRegDetails();
+
+                    }
+                });
+            }
+            
+        </script>
+
+
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // Find the submit button element
@@ -379,6 +558,8 @@
             });
         </script>
         <script>
+            
+            
             function refreshData(){
                 getRegDetails();
                 }
@@ -415,37 +596,49 @@
                                 });
                             
                             // bill is not yet generated fee_status == 2
-                if (data.data.fee_status == 2) {                    
-                    $('#generateBillButton').show(200);
-                    $('#payBillButton').hide(200);
-                    $('#cross').show(200);
-                    $('#check').hide();
+                            if (data.data.fee_status == 2) {                    
+                                $('#generateBillButtonDiv').show(200);
+                                $('#payBillButton').hide(200);
+                                $('#cross').show(200);
+                                $('#check').hide();
 
-                // bill is PAID fee_status == 1
-                } else if (data.data.fee_status == 1) {
-                    $('#generateBillButton').hide(200);
-                    $('#payBillButton').hide(200);
-                    $('#check').show(200);
-                    $('#cross').hide();
+                            // bill is PAID fee_status == 1
+                            } else if (data.data.fee_status == 1) {
+                                $('#generateBillButtonDiv').hide(200);
+                                $('#payBillButton').hide(200);
+                                $('#check').show(200);
+                                $('#cross').hide();
 
-                // bill was generated wait for payment fee_status == 0 
-                } else if (data.data.fee_status == 0) {                    
-                    $('#generateBillButton').hide(200);
-                    $('#payBillButton').show(200);
-                    $('#check').hide(200);
-                    $('#cross').show();
+                            // bill was generated wait for payment fee_status == 0 
+                            } else if (data.data.fee_status == 0) {                    
+                                $('#generateBillButtonDiv').hide(200);
+                                $('#payBillButton').show(200);
+                                $('#check').hide(200);
+                                $('#cross').show();
 
 
-                }
+                            }
+
+
+                            // bill is not yet generated fee_status == 2
+                            if (data.data.gepg == 1 && data.data.bill_ref_no == 1) {
+                                
+                                $('#paymentoptionDiv').show(200);
+
+                            // bill is PAID fee_status == 1
+                            }else if(data.data.gepg == 1 && data.data.bill_ref_no != 1){
+                            $('#paymentoptionDiv').hide(200);
+
+                            }
+
                             $('#infoDiv').show(200);
                             $('#errorDiv').hide();
                         } else {
                             document.getElementById('allertId').textContent = data.message;
-                            $('#generateBillButton').hide(200);
+                            $('#generateBillButtonDiv').hide(200);
                             $('#infoDiv').hide();
                             $('#errorDiv').show(200);
                         }
-                        console.log(data);
                     },
                     error: function() {
                         console.log('failed');
@@ -455,50 +648,4 @@
                     }
                 });
             }
-        </script>
-        <script>
-            //data when the button is clicked
-            document.getElementById("generateBillButton").addEventListener("click", function() {
-                // JSON data to be sent
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                let reg_no = document.getElementById('reg_no').value;
-                const jsonData = {
-                    _token: CSRF_TOKEN,
-                    reg_no: reg_no,
-                };
-                // const endpoint = "http://41.59.227.219/membership/process-bill";   
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('memberDetails/process-bill/') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                        if (data.statusCode == 200) {
-                            if (data.data.error == 0) {
-                                document.getElementById('successID').textContent ="Bill Generated Successful!";
-                                $('#succcessDiv').show();
-                                $('#payBillButton').show(200);
-                                $('#generateBillButton').hide();
-                            }
-                            if (data.data.error == 1) {
-                                document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
-                                $('#errorDiv').show();
-                            }
-                        }
-                    },
-                    error: function() {
-                        console.log('Server Error')
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    getRegDetails();
-
-                    }
-                });
-            });
         </script>
