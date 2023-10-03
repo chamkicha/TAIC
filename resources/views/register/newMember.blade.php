@@ -202,7 +202,7 @@
                               <div class="col-lg-4">
                                 <div class="mb-3">
                                   <label class="form-label" for="gen-info-mobile-input">Mobile</label>
-                                  <input type="number" value="{{ old('mobile') }}" name="mobile" class="form-control" id="gen-info-mobile-input" placeholder="255*********" required>
+                                  <input type="number" value="{{ old('mobile') }}" name="mobile" class="form-control" id="gen-info-mobile-input" placeholder="07*********" required>
                                   <div class="invalid-feedback">Please enter a Mobile</div>
                                 </div>
                               </div>

@@ -133,7 +133,7 @@
                                                                                 </p></td>
                                                                             </tr>
                                                                       </tbody>
-                                                                  </table>
+                                                                    </table>
   
                                                                   
                                                                   <!-- Table Foot -->
@@ -185,7 +185,7 @@
                                                             
                                                             
 
-                                                            <div id="paymentoptionDiv">
+                                                            <div id="paymentoptionDiv" class="mb-5">
                                                                 <div class="row  mt-2">
                                                                     <div class="col d-flex justify-content-center">
                                                                     <div id="wapper">
@@ -210,7 +210,7 @@
                                                                         </a>
                                                                     </div>
 
-                                                                    <div class="col-lg-6 col-sm-6">
+                                                                    <div class="col-lg-6 col-sm-6" id="ncardButton">
                                                                         <a onclick="generateControlNoNcard()">
                                                                         <div >
                                                                             <div class="form-check card-radio" style="text-align: center;">
@@ -224,12 +224,24 @@
                                                                         </a>
                                                                     </div>
 
+
+                                                                    <div class="col-lg-6 col-sm-6" id="gpegMessage" style="display:none;">
+                                                                        <div >
+                                                                            <div class="form-check card-radio" style="text-align: center;">
+                                                                                <label class="form-check-label">
+                                                                                </br>
+                                                                                    <span class="fs-14 text-wrap" id="gpegTextMessage"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
 
 
                                                             <div class="node-card">
-                                                              <p>Please! Note Down Your Bill No. For Future Reference</p>
+                                                              <p id="billGeneratedNote" style="display:none">Please! Note Down Your Bill No. For Future Reference</p>
                                                               <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
                                                           </div>
                                                         </div>
@@ -303,143 +315,6 @@
 
 
   <script>
-            //data when the button is clicked
-            function generateControlNoGepg() {
-                // JSON data to be sent
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                let reg_no = document.getElementById('reg_no').value;
-
-                const jsonData = {
-                    _token: CSRF_TOKEN,
-                    reg_no: reg_no,
-                };
-                // const endpoint = "http://41.59.227.219/membership/process-bill";   
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('memberDetails/process-bill-gepg/') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                        if (data.statusCode == 200) {
-
-                            $.ajax({
-                                type: 'POST',
-                                url: '{!! URL::to('memberDetails/check-control-no/') !!}',
-                                data: {
-                                    _token: CSRF_TOKEN,
-                                    reg_no: reg_no
-                                },
-                                success: function(data) {
-                                    if (data.statusCode == 200) {
-
-
-                                    document.getElementById('successID').textContent ="Bill Generated Successful!";
-                                    $('#succcessDiv').show();
-                                    $('#payBillButton').show(200);
-                                    $('#generateBillButtonDiv').hide();
-                                    $('#paymentoptionDiv').hide(200);
-                                    
-                                    }else{
-
-
-
-                                    document.getElementById('successID').textContent ="Failed To generate Bill!";
-                                    $('#succcessDiv').hide();
-                                    $('#payBillButton').hide(200);
-                                    $('#generateBillButtonDiv').show();
-                                    $('#paymentoptionDiv').show(200);
-
-                                    }
-                                },
-                                error: function() {
-                                    console.log('Server Error')
-                                },
-                            });
-                            
-                        }
-                    },
-                    error: function() {
-                        console.log('Server Error')
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    getRegDetails();
-
-                    }
-                });
-            }
-
-
-            //data when the button is clicked
-            function generateControlNoNcard() {
-
-                // JSON data to be sent
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                let reg_no = document.getElementById('reg_no').value;
-
-                
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('memberDetails/process-bill/') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                      console.log(data);
-
-                        if (data.statusCode == 200) {
-                            document.getElementById('successID').textContent ="Bill Generated Successful!";
-                            document.getElementById('billNumber').textContent =data.data.bill_ref_no;
-
-                            document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
-                            $('#paymentoptionDiv').hide();
-
-                            if (data.data.payment_reference == "") {
-                                $('#cross').show(200);
-                                $('#check').hide();
-                            } else {
-                                $('#check').show(200);
-                                $('#cross').hide();
-                            }
-
-                            $('#succcessDiv').show();
-                            $('#payBillButton').show(200);
-                            $('#generateBillButtonDiv').hide();
-                        }else{
-                          document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
-                            $('#paymentoptionDiv').show(200);
-                            $('#errorDiv').show();
-                        }
-                    },
-                    error: function() {
-                        console.log('Server Error')
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    getRegDetails();
-
-                    }
-                });
-            }
-            
-        </script>
-
-  
-  
-  
-  <script>
     document.addEventListener("DOMContentLoaded", function() {
       const nextTabButton = document.querySelector(".nexttab");
       const targetButton = document.getElementById("pills-info-desc-tab");
@@ -450,196 +325,8 @@
     });
   </script>
   
-  <script>
-    function refreshData(){
-        getRegDetails();
-    }
-
-    function getRegDetails() {
-  
-      let reg_no = document.getElementById('reg_no').value;
-      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
 
-      var downloadBillBtn = document.getElementById("downloadBillBtn");
 
-      downloadBillBtn.href = "{{ URL::to('/billPdf/') }}" + "/" + reg_no;
-
-      $.ajax({
-          type: 'POST',
-          url: '{!!URL::to('process-regno')!!}',
-          data: {_token: CSRF_TOKEN, reg_no:reg_no},
-  
-          beforeSend: function() {
-              $('#loaderNew').show();
-                  },
-  
-          success: function(data){
-            console.log(data);
-              if(data.statusCode == 200){
-  
-                document.getElementById('full_name').textContent = data.data.first_name + ' ' + data.data.middle_name + ' ' + data.data.last_name;
-                document.getElementById('professional_category').textContent = data.data.professional_category;
-                document.getElementById('reg_number').textContent = data.data.reg_no;
-                document.getElementById('mobile').textContent = data.data.mobile;
-                document.getElementById('institution').textContent = data.data.institution;
-                document.getElementById('billNumber').textContent = data.data.bill_ref_no;
-
-
-                document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
-                document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
-                document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
-                document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
-                
-                document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString('en-US');
-                var annual_fee = data.data.annual_fee;
-                var event_fee = data.data.event_fee.toLocaleString('en-US');
-                document.getElementById('total_amount').textContent = data.data.total_amount.toLocaleString('en-US', {
-                                        style: 'currency',
-                                        currency: 'TSh'
-                                    });
-  
-                                    var tableBody = document.getElementById('data_table_body');
-  
-                tableBody.innerHTML = '';
-  
-                for (var i = 0; i < annual_fee.length; i++) {
-                    var row = document.createElement('tr');
-  
-                    var idCell = document.createElement('td');
-                    idCell.textContent = (i + 1).toString(); 
-                    row.appendChild(idCell);
-  
-                    var dateCell = document.createElement('td');
-                    dateCell.textContent = new Date(annual_fee[i].year).toLocaleDateString();
-                    row.appendChild(dateCell);
-  
-                    var amountCell = document.createElement('td');
-                    amountCell.textContent = annual_fee[i].amount;
-                    row.appendChild(amountCell);
-  
-                    tableBody.appendChild(row);
-                }
-
-                // bill is not yet generated fee_status == 2
-                if (data.data.gepg == 1 && data.data.bill_ref_no == 1) {
-                    
-                    $('#paymentoptionDiv').show(200);
-
-                // bill is PAID fee_status == 1
-                }else if(data.data.gepg == 1 && data.data.bill_ref_no != 1){
-                  $('#paymentoptionDiv').hide(200);
-
-                }
-                
-                // bill is not yet generated fee_status == 2
-                if (data.data.fee_status == 2) {
-                    
-                    $('#generateBillButtonDiv').show(200);
-                    $('#payBillButton').hide(200);
-                    $('#cross').show(200);
-                    $('#check').hide();
-
-                // bill is PAID fee_status == 1
-                } else if (data.data.fee_status == 1) {
-
-                    $('#generateBillButtonDiv').hide(200);
-                    $('#payBillButton').hide(200);
-                    $('#check').show(200);
-                    $('#cross').hide();
-
-                // bill was generated wait for payment fee_status == 0 
-                } else if (data.data.fee_status == 0) {
-                    
-                    $('#generateBillButtonDiv').hide(200);
-                    $('#payBillButton').show(200);
-
-                    $('#check').hide(200);
-                    $('#cross').show();
-                }
-
-               
-              $('#infoDiv').show(200);
-              $('#errorDiv').hide();
-              
-              }else{
-               document.getElementById('allertId').textContent = data.message;
-              $('#generateBillButtonDiv').hide(200);
-              $('#infoDiv').hide();
-              $('#errorDiv').show(200);
-  
-              }
-          },
-          error: function(){
-              console.log('failed');
-          },
-          
-          complete: function() {
-            $('#loaderNew').hide();
-                  }
-    });
-  }
-  </script>
-    <script>
-        //data when the button is clicked
-        document.getElementById("generateBillButton_old").addEventListener("click", function() {
-            // JSON data to be sent
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            let reg_no = document.getElementById('reg_no').value;
-            const jsonData = {
-                _token: CSRF_TOKEN,
-                reg_no: reg_no,
-            };
-            // const endpoint = "http://41.59.227.219/membership/process-bill";   
-            $.ajax({
-                type: 'POST',
-                url: '{!! URL::to('memberDetails/process-bill/') !!}',
-                data: {
-                    _token: CSRF_TOKEN,
-                    reg_no: reg_no
-                },
-                beforeSend: function() {
-                    $('#loaderNew').show();
-                },
-                success: function(data) {
-                    if (data.statusCode == 200) {
-                        if (data.data.error == 0) {
-                            document.getElementById('successID').textContent ="Bill Generated Successful!";
-                            document.getElementById('billNumber').textContent =data.data.bill_ref_no;
-
-                            document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
-
-                            if (data.data.payment_reference == "") {
-                                $('#cross').show(200);
-                                $('#check').hide();
-                            } else {
-                                $('#check').show(200);
-                                $('#cross').hide();
-                            }
-
-                            $('#succcessDiv').show();
-                            $('#payBillButton').show(200);
-                            $('#generateBillButtonDiv').hide();
-                        }
-                        if (data.data.error == 1) {
-
-                            document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
-                            $('#errorDiv').show();
-                        }
-                    }
-                },
-                error: function() {
-                    console.log('Server Error')
-                },
-                complete: function() {
-                    $('#loaderNew').hide();
-                    getRegDetails();
-                }
-            });
-        });
-    </script>
   
   

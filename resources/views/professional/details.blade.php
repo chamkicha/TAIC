@@ -111,239 +111,181 @@
                                                         </div>
                                                       </div>
                                                 </div>
-                                                <div class="card" id="infoDiv" style="display:none">
-                                                    <div class="p-1">
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="row">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="swiper-wrapper"
-                                                                            id="swiper-wrapper-a6ca147977931458"
-                                                                            aria-live="polite"
-                                                                            style="transform: translate3d(0px, 0px, 0px);">
-                                                                            <div class="swiper-slide swiper-slide-active"
-                                                                                role="group" aria-label="1 / 5"
-                                                                                style="width: 654px; margin-right: 15px;">
-                                                                                <div
-                                                                                    class="card profile-project-card shadow-none profile-project-success mb-0">
-                                                                                    <div class="card-body p-4">
-                                                                                        <div class="d-flex">
-                                                                                            <div
-                                                                                                class="flex-grow-1 text-muted overflow-hidden">
-                                                                                                <h5
-                                                                                                    class="fs-14 text-truncate mb-1">
-                                                                                                    <a href="#"
-                                                                                                        class="text-dark"
-                                                                                                        id="full_name"></a>
-                                                                                                </h5>
-                                                                                                <table>
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <td>
-                                                                                                                <p
-                                                                                                                    class="text-muted text-truncate mb-0">
-                                                                                                                    Category
-                                                                                                                    :
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                            <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0"
-                                                                                                                    id="professional_category">
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td>
-                                                                                                                <p
-                                                                                                                    class="text-muted text-truncate mb-0">
-                                                                                                                    Reg
-                                                                                                                    No :
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                            <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0"
-                                                                                                                    id="reg_number">
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td>
-                                                                                                                <p
-                                                                                                                    class="text-muted text-truncate mb-0">
-                                                                                                                    Mobile
-                                                                                                                    :
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                            <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0"
-                                                                                                                    id="mobile">
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td>
-                                                                                                                <p
-                                                                                                                    class="text-muted text-truncate mb-0">
-                                                                                                                    Institution
-                                                                                                                    :
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                            <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0"
-                                                                                                                    id="institution">
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td>
-                                                                                                                <p
-                                                                                                                    class="text-muted text-truncate mb-0">
-                                                                                                                    Bill Number :
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                            <td>
-                                                                                                                <p class="fw-semibold text-dark mb-0 p-1"
-                                                                                                                    id="billNumber"
-                                                                                                                    style="color:white!important;
-                                                                                                                        background-color: #4d1313;
-                                                                                                                        border-radius: .25rem;">
-                                                                                                                </p>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td><p class="text-muted text-truncate mb-0"> Payment Status :</p></td>
-                                                                                                            <td><p class="fw-semibold text-dark mb-0" id="paymentStatus">                                                                                    
-                                                                                                                <img id="check" src="{{asset('assets/images/icons/check.png')}}" style="display:none" alt="check" width="16px" height="16px">
-                                                                                                                <img id="cross" src="{{asset('assets/images/icons/cross.png')}}" style="display:none" alt="cross" width="16px" height="16px">
-                                                                                                            </p></td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                                <!-- Table Foot -->
-                                    
-                                                                                                <p class="fw-semibold text-dark mt-3"
-                                                                                                    style="margin-bottom: 0px;">
-                                                                                                    Event Fee</p>
-                                                                                                <table
-                                                                                                    class="table table-nowrap mt-0">
-                                                                                                    <thead
-                                                                                                        class="table-light ">
-                                                                                                        <tr>
-                                                                                                            <th
-                                                                                                                scope="col">
-                                                                                                                #</th>
-                                                                                                            <th
-                                                                                                                scope="col">
-                                                                                                                Year
-                                                                                                            </th>
-                                                                                                            <th
-                                                                                                                scope="col">
-                                                                                                                Price(TSh)
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </thead>
+                                                
+                              <div class="card" id="infoDiv" style="display:none">
+                                  <div class="p-1">                            
+                                    <div class="row">
+                                      <div class="col-lg-6"> 
+                                        <div class="row">
+                                          <div class="col-lg-6">  
+                                            <div class="swiper-wrapper" id="swiper-wrapper-a6ca147977931458" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                                                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5" style="width: 654px; margin-right: 15px;">
+                                                    <div class="card profile-project-card shadow-none profile-project-success mb-0">
+                                                        <div class="card-body p-4">
+                                                            <div class="d-flex">
+                                                                <div class="flex-grow-1 text-muted overflow-hidden">
+                                                                    <h5 class="fs-14 text-truncate mb-1">
+                                                                        <a href="#" class="text-dark" id="full_name"></a>
+                                                                    </h5>                                                                    
+                                                                    <table>                                                                      
+                                                                      <tbody>
+                                                                              <tr>
+                                                                                  <td><p class="text-muted text-truncate mb-0"> Category :</p></td>
+                                                                                  <td><p class="fw-semibold text-dark mb-0" id="professional_category"></p></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                  <td><p class="text-muted text-truncate mb-0"> Reg No :</p></td>
+                                                                                  <td><p class="fw-semibold text-dark mb-0" id="reg_number"></p></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                  <td><p class="text-muted text-truncate mb-0"> Mobile :</p></td>
+                                                                                  <td><p class="fw-semibold text-dark mb-0" id="mobile"></p></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                  <td><p class="text-muted text-truncate mb-0"> Institution :</p></td>
+                                                                                  <td><p class="fw-semibold text-dark mb-0" id="institution"></p></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td><p class="text-muted text-truncate mb-0"> Bill Number :</p></td>
+                                                                                <td><p class="fw-semibold text-dark mb-0 p-1" id="billNumber"
+                                                                                        style="color:white!important;
+                                                                                      background-color: #4d1313;
+                                                                                      border-radius: .25rem;"></p></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><p class="text-muted text-truncate mb-0"> Payment Status :</p></td>
+                                                                                <td><p class="fw-semibold text-dark mb-0" id="paymentStatus">                                                                                    
+                                                                                    <img id="check" src="{{asset('assets/images/icons/check.png')}}" style="display:none" alt="check" width="16px" height="16px">
+                                                                                    <img id="cross" src="{{asset('assets/images/icons/cross.png')}}" style="display:none" alt="cross" width="16px" height="16px">
+                                                                                </p></td>
+                                                                            </tr>
+                                                                      </tbody>
+                                                                    </table>
+  
+                                                                  
+                                                                  <!-- Table Foot -->
+                                                                  <p class="fw-semibold text-dark mt-3" style="margin-bottom: 0px;">Annual Fee</p>
+                                                                  <table class="table table-nowrap mt-0">
+                                                                      <thead class="table-light ">
+                                                                          <tr>
+                                                                              <th scope="col">#</th>
+                                                                              <th scope="col">Year</th>
+                                                                              <th scope="col">Price(TSh)</th>
+                                                                          </tr>
+                                                                      </thead>
+                                                                      <tbody id="data_table_body">
+                                                                      </tbody>
+                                                                      
+                                                                  </table>
+  
+                                                                  <p class="fw-semibold text-dark mt-3" style="margin-bottom: 0px;">Event Fee</p>
+                                                                  <table class="table table-nowrap mt-0">
+                                                                      <thead class="table-light ">
+                                                                          <tr>
+                                                                              <th scope="col">#</th>
+                                                                              <th scope="col">Year</th>
+                                                                              <th scope="col">Price(TSh)</th>
+                                                                          </tr>
+                                                                      </thead>
+                                                                     
+                                                                      
+                                                                      <tbody>
+                                                                          <tr>
+                                                                              <th scope="row">1</th>
+                                                                              <td>{{ date('Y') }}</td>
+                                                                              <td id="event_fee"></td>
+                                                                          </tr>
+                                                                         
+                                                                          
+                                                                      </tbody>
+                                                                      <tfoot class="table-light">
+                                                                          <tr>
+                                                                              <th colspan="2">Total</th>
+                                                                              <th id="total_amount"></th>
+                                                                          </tr>
+                                                                      </tfoot>
+                                                                  </table>  
+                                                                </div> 
+                                                            </div>
 
+                                                            
+                                                            
+                                                            
 
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <th
-                                                                                                                scope="row">
-                                                                                                                1</th>
-                                                                                                            <td>{{ date('Y') }}
-                                                                                                            </td>
-                                                                                                            <td
-                                                                                                                id="event_fee">
-                                                                                                            </td>
-                                                                                                        </tr>
-
-
-                                                                                                    </tbody>
-                                                                                                    <tfoot
-                                                                                                        class="table-light">
-                                                                                                        <tr>
-                                                                                                            <th
-                                                                                                                colspan="2">
-                                                                                                                Total
-                                                                                                            </th>
-                                                                                                            <th
-                                                                                                                id="total_amount">
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </tfoot>
-                                                                                                </table>
-
-                                                                                            </div>
-
-                                                                                        </div>
-
-                                                                                        <div id="paymentoptionDiv">
-                                                                                            <div class="row  mt-2">
-                                                                                                <div class="col d-flex justify-content-center">
-                                                                                                <div id="wapper">
-                                                                                                    <h3>Select Payment Option</h3>
-                                                                                                
-                                                                                                </div>
-                                                                                                </div>
-                                                                                            </div>
-
-                                                                                            <div class="row g-4 align-items">
-                                                                                                <div class="col-lg-6 col-sm-6">
-                                                                                                <a onclick="generateControlNoGepg()">
-                                                                                                    <div >
-                                                                                                        <div class="form-check card-radio" style="text-align: center;">
-                                                                                                            <label class="form-check-label" >
-                                                                                                                <img class="rounded-circle avatar-md" alt="gprg" src="{{ asset('assets/images/gpeg.png') }}">
-                                                                                                            </br>
-                                                                                                                <span class="fs-14 text-wrap">GePG - Control Number Payment</span>
-                                                                                                            </label>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    </a>
-                                                                                                </div>
-
-                                                                                                <div class="col-lg-6 col-sm-6">
-                                                                                                    <a onclick="generateControlNoNcard()">
-                                                                                                    <div >
-                                                                                                        <div class="form-check card-radio" style="text-align: center;">
-                                                                                                            <label class="form-check-label">
-                                                                                                                <img class="avatar-md" style="width:50%" alt="ncard" src="{{ asset('assets/images/ncard.png') }}">
-                                                                                                            </br>
-                                                                                                                <span class="fs-14 text-wrap">Ncard - Bill Number Payment</span>
-                                                                                                            </label>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    </a>
-                                                                                                </div>
-
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        
-
-
-
-                                                                                        <div class="node-card mt-5">
-                                                                                            <p>Please check your Email</p>
-                                                                                            <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- end card body -->
-                                                                                </div>
-                                                                                <!-- end card -->
-                                                                            </div>
-                                                                            <!-- end slide item -->
-                                                                        </div>
+                                                            <div id="paymentoptionDiv" class="mb-5">
+                                                                <div class="row  mt-2">
+                                                                    <div class="col d-flex justify-content-center">
+                                                                    <div id="wapper">
+                                                                        <h3>Select Payment Option</h3>
+                                                                    
+                                                                    </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-6" style="z-index: -100;">
 
+                                                                <div class="row g-4 align-items">
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                    <a onclick="generateControlNoGepg()">
+                                                                        <div >
+                                                                            <div class="form-check card-radio" style="text-align: center;">
+                                                                                <label class="form-check-label" >
+                                                                                    <img class="rounded-circle avatar-md" alt="gprg" src="{{ asset('assets/images/gpeg.png') }}">
+                                                                                </br>
+                                                                                    <span class="fs-14 text-wrap">GePG - Control Number Payment</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="col-lg-6 col-sm-6" id="ncardButton">
+                                                                        <a onclick="generateControlNoNcard()">
+                                                                        <div >
+                                                                            <div class="form-check card-radio" style="text-align: center;">
+                                                                                <label class="form-check-label">
+                                                                                    <img class="avatar-md" style="width:50%" alt="ncard" src="{{ asset('assets/images/ncard.png') }}">
+                                                                                </br>
+                                                                                    <span class="fs-14 text-wrap">Ncard - Bill Number Payment</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        </a>
+                                                                    </div>
+
+
+                                                                    <div class="col-lg-6 col-sm-6" id="gpegMessage" style="display:none;">
+                                                                        <div >
+                                                                            <div class="form-check card-radio" style="text-align: center;">
+                                                                                <label class="form-check-label">
+                                                                                </br>
+                                                                                    <span class="fs-14 text-wrap" id="gpegTextMessage"></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
+
+
+                                                            <div class="node-card">
+                                                              <p id="billGeneratedNote" style="display:none">Please! Note Down Your Bill No. For Future Reference</p>
+                                                              <a id="downloadBillBtn" class="btn btn-primary" href="#">Download Bill</a>
+                                                          </div>
                                                         </div>
-
-                                                    </div><!-- end card body -->
+                                                        <!-- end card body -->
+                                                    </div>
+                                                    <!-- end card -->
                                                 </div>
+                                                <!-- end slide item -->                                                
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6" style="z-index: -100;">  
+                                      </div>
+                                    </div>  
+                                  </div><!-- end card body -->
+                              </div> 
                                                
                                             </div>
                                             <div class="d-flex align-items-start gap-3 mt-4">
@@ -394,152 +336,6 @@
         <!-- provide the csrf token -->
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-
-        <script>
-            //data when the button is clicked
-            function generateControlNoGepg() {
-                // JSON data to be sent
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                let reg_no = document.getElementById('reg_no').value;
-
-                const jsonData = {
-                    _token: CSRF_TOKEN,
-                    reg_no: reg_no,
-                };
-                // const endpoint = "http://41.59.227.219/membership/process-bill";   
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('memberDetails/process-bill-gepg/') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                        if (data.statusCode == 200) {
-
-                            $.ajax({
-                                type: 'POST',
-                                url: '{!! URL::to('memberDetails/check-control-no/') !!}',
-                                data: {
-                                    _token: CSRF_TOKEN,
-                                    reg_no: reg_no
-                                },
-                                success: function(data) {
-                                    console.log(data);
-                                    console.log('mimi');
-                                    if (data.statusCode == 200) {
-
-
-                                    document.getElementById('successID').textContent ="Bill Generated Successful!";
-                                    $('#succcessDiv').show();
-                                    $('#payBillButton').show(200);
-                                    $('#generateBillButtonDiv').hide();
-                                    $('#paymentoptionDiv').hide();
-                                    
-                                    }else{
-
-
-
-                                    document.getElementById('successID').textContent ="Failed To generate Bill!";
-                                    $('#succcessDiv').hide();
-                                    $('#payBillButton').hide(200);
-                                    $('#generateBillButtonDiv').show();
-                                    $('#paymentoptionDiv').show();
-
-                                    }
-                                },
-                                error: function() {
-                                    console.log('Server Error')
-                                },
-                            });
-                            
-                        }
-                    },
-                    error: function() {
-                        console.log('Server Error')
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    getRegDetails();
-
-                    }
-                });
-            }
-
-
-            //data when the button is clicked
-            function generateControlNoNcard() {
-                // JSON data to be sent
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                let reg_no = document.getElementById('reg_no').value;
-
-                const jsonData = {
-                    _token: CSRF_TOKEN,
-                    reg_no: reg_no,
-                };
-                // const endpoint = "http://41.59.227.219/membership/process-bill";   
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('memberDetails/process-bill/') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                        if (data.statusCode == 200) {
-                            
-                            
-                        if (data.data.error == 0) {
-                            console.log(data.data.bill_ref_no);
-                            document.getElementById('successID').textContent ="Bill Generated Successful!";
-                            document.getElementById('billNumber').textContent =data.data.bill_ref_no;
-
-                            document.getElementById('billNumberTTCL').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberTigo').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberMpesa').textContent =data.data.bill_ref_no;
-                            document.getElementById('billNumberAirtel').textContent =data.data.bill_ref_no;
-                            $('#paymentoptionDiv').hide();
-
-                            if (data.data.payment_reference == "") {
-                                $('#cross').show(200);
-                                $('#check').hide();
-                            } else {
-                                $('#check').show(200);
-                                $('#cross').hide();
-                            }
-
-                            $('#succcessDiv').show();
-                            $('#payBillButton').show(200);
-                            $('#generateBillButtonDiv').hide();
-                        }
-                        if (data.data.error == 1) {
-
-                            document.getElementById('allertId').textContent = "Your Bill is Ready!. Refresh";
-                            $('#paymentoptionDiv').show(200);
-                            $('#errorDiv').show();
-                        }
-                        }
-                    },
-                    error: function() {
-                        console.log('Server Error')
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    getRegDetails();
-
-                    }
-                });
-            }
-            
-        </script>
-
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // Find the submit button element
@@ -557,95 +353,4 @@
                 });
             });
         </script>
-        <script>
-            
-            
-            function refreshData(){
-                getRegDetails();
-                }
-            function getRegDetails() {
-                let reg_no = document.getElementById('reg_no').value;
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                $.ajax({
-                    type: 'POST',
-                    url: '{!! URL::to('process-regno') !!}',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        reg_no: reg_no
-                    },
-                    beforeSend: function() {
-                        $('#loaderNew').show();
-                    },
-                    success: function(data) {
-                        if (data.statusCode == 200) {
-                            document.getElementById('full_name').textContent = data.data.first_name + ' ' + data
-                                .data.middle_name + ' ' + data.data.last_name;
-                            document.getElementById('professional_category').textContent = data.data
-                                .professional_category;
-                            document.getElementById('reg_number').textContent = data.data.reg_no;
-                            document.getElementById('mobile').textContent = data.data.mobile;
-                            document.getElementById('institution').textContent = data.data.institution;
-                            document.getElementById('billNumber').textContent = data.data.bill_ref_no;
-                            document.getElementById('event_fee').textContent = data.data.event_fee.toLocaleString(
-                                'en-US');
-                            var event_fee = data.data.event_fee.toLocaleString('en-US');
-                            document.getElementById('total_amount').textContent = data.data.total_amount
-                                .toLocaleString('en-US', {
-                                    style: 'currency',
-                                    currency: 'TSh'
-                                });
-                            
-                            // bill is not yet generated fee_status == 2
-                            if (data.data.fee_status == 2) {                    
-                                $('#generateBillButtonDiv').show(200);
-                                $('#payBillButton').hide(200);
-                                $('#cross').show(200);
-                                $('#check').hide();
 
-                            // bill is PAID fee_status == 1
-                            } else if (data.data.fee_status == 1) {
-                                $('#generateBillButtonDiv').hide(200);
-                                $('#payBillButton').hide(200);
-                                $('#check').show(200);
-                                $('#cross').hide();
-
-                            // bill was generated wait for payment fee_status == 0 
-                            } else if (data.data.fee_status == 0) {                    
-                                $('#generateBillButtonDiv').hide(200);
-                                $('#payBillButton').show(200);
-                                $('#check').hide(200);
-                                $('#cross').show();
-
-
-                            }
-
-
-                            // bill is not yet generated fee_status == 2
-                            if (data.data.gepg == 1 && data.data.bill_ref_no == 1) {
-                                
-                                $('#paymentoptionDiv').show(200);
-
-                            // bill is PAID fee_status == 1
-                            }else if(data.data.gepg == 1 && data.data.bill_ref_no != 1){
-                            $('#paymentoptionDiv').hide(200);
-
-                            }
-
-                            $('#infoDiv').show(200);
-                            $('#errorDiv').hide();
-                        } else {
-                            document.getElementById('allertId').textContent = data.message;
-                            $('#generateBillButtonDiv').hide(200);
-                            $('#infoDiv').hide();
-                            $('#errorDiv').show(200);
-                        }
-                    },
-                    error: function() {
-                        console.log('failed');
-                    },
-                    complete: function() {
-                        $('#loaderNew').hide();
-                    }
-                });
-            }
-        </script>
