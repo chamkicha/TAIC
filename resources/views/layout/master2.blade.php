@@ -151,9 +151,39 @@
     <!-- App js -->
      <script src="{{ asset('assets/js/app.js') }}"></script>
     <script src="{{ asset('assets/js/CustomJs.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
 
+      function callSweetAlert(calledFunction){
+        console.log(calledFunction);
+
+
+        Swal.fire({
+            title: 'Do you want to proceed?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              if(calledFunction == 'generateControlNoGepg'){
+
+                generateControlNoGepg()
+
+              }else if(calledFunction == 'generateControlNoNcard'){
+
+                generateControlNoNcard()
+
+              }
+            } 
+          })
+
+      }
+
+    </script>
 
     <script>
+
         function refreshData(){
             getRegDetails();
         }
@@ -295,8 +325,9 @@
                     }
                     $('#infoDiv').show();
                     $('#errorDiv').hide(200);
-                  
+                    
                   }else{
+                  
                   document.getElementById('allertId').textContent = data.message;
                   $('#infoDiv').hide();
                   $('#errorDiv').show(200);
@@ -318,6 +349,7 @@
 
         //data when the button is clicked
         function generateControlNoGepg() {
+          
             // JSON data to be sent
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             let reg_no = document.getElementById('reg_no').value;
@@ -360,7 +392,7 @@
                                 
                             },
                             error: function() {
-                                console.log('Server Error')
+                                getRegDetails();
                             },
                         });
 
@@ -369,7 +401,7 @@
                     }
                 },
                 error: function() {
-                    console.log('Server Error')
+                  getRegDetails();
                 },
               
               
@@ -405,7 +437,7 @@
                     }
                 },
                 error: function() {
-                    console.log('Server Error')
+                  getRegDetails()
                 }
             });
           }

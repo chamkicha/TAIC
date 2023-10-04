@@ -197,7 +197,8 @@
 
                                                                 <div class="row g-4 align-items">
                                                                     <div class="col-lg-6 col-sm-6">
-                                                                    <a onclick="generateControlNoGepg()">
+                                                                    <a onclick="callSweetAlert('generateControlNoGepg')">
+                                                                    
                                                                         <div >
                                                                             <div class="form-check card-radio" style="text-align: center;">
                                                                                 <label class="form-check-label" >
@@ -211,7 +212,7 @@
                                                                     </div>
 
                                                                     <div class="col-lg-6 col-sm-6" id="ncardButton">
-                                                                        <a onclick="generateControlNoNcard()">
+                                                                        <a onclick="callSweetAlert('generateControlNoNcard')">
                                                                         <div >
                                                                             <div class="form-check card-radio" style="text-align: center;">
                                                                                 <label class="form-check-label">
