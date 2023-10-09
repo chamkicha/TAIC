@@ -1,0 +1,84 @@
+@extends('layout/admin/master')
+
+@section('content')
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+        <h4 class="mb-sm-0">Projects</h4>
+        <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item">
+            <a href="{{ url('/dashboard') }}">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Members</li>
+        </ol>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Buttons Datatables</h5>
+            </div>
+            <div class="card-body">
+                <table id="buttons-datatables" class="display table table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            
+                            <th>#</th>
+                            <th>REG NO.</th>
+                            <th>Name</th>
+                            <th>Reg. Date</th>
+                            <th>Total Bill Amount</th>
+                            <th>Bill Status</th>
+                            <th style="width: 150px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach($members as $member)
+                        <tr>
+                            
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                            <a href="#" class="fw-medium">{{ $member->reg_no }}</a>
+                            </td>
+                            <td>{{ $member->first_name }} {{ $member->middle_name }} {{ $member->last_name }}</td>
+                            <td>
+                            {{ \Carbon\Carbon::parse($member->created_at)->format('d-m-Y') }}
+                            </td>
+                            <td>
+                                @foreach ($member->bills as $w)
+                                    @if(!is_null($w->amount) && $w->amount !== '') 
+                                    {{ $w->amount }} 
+                                    @else
+                                    0   
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td>
+                            <span class="badge bg-success">Paid</span>
+                            </td>
+                            <td>
+                            <button type="button" class="btn btn-sm btn-light">Details</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                        
+                </table>
+            </div>
+        </div>
+    </div>
+</div><!--end row-->
+
+
+@stop
