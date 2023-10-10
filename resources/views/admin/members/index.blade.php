@@ -56,16 +56,32 @@
                             {{ \Carbon\Carbon::parse($member->created_at)->format('d-m-Y') }}
                             </td>
                             <td>
+
+                                @if(empty($member->bills)) 
+                                 0
+                                @else 
                                 @foreach ($member->bills as $w)
-                                    @if(!is_null($w->amount) && $w->amount !== '') 
                                     {{ $w->amount }} 
-                                    @else
-                                    0   
-                                    @endif
                                 @endforeach
+                                @endif
                             </td>
                             <td>
-                            <span class="badge bg-success">Paid</span>
+
+
+                                @if(empty($member->bills)) 
+                                  <span class="badge bg-danger">No bill</span>
+                                 
+                                @else
+
+                                  @foreach ($member->bills as $w)
+                                    @if( $w->paid_status == 1)
+                                   <span class="badge bg-success">Paid</span>
+                                   @else
+                                   <span class="badge bg-info">Not Paid</span>
+                                   @endif
+                                  @endforeach
+                                @endif
+
                             </td>
                             <td>
                             <button type="button" class="btn btn-sm btn-light">Details</button>
