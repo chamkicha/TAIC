@@ -20,7 +20,7 @@ class AuthenticationController extends Controller
     public function login(Request $request){
               //   dd($request);
             $URL  = baseUrl().'/api/login';
-            // try{
+            try{
                 $result  =  Http::post($URL,
                     [
                         'email'=>$request->email,
@@ -31,33 +31,33 @@ class AuthenticationController extends Controller
 
                 // dd($result);
                 
-                // $class  =  'success';
-                // if($result->error == 'true'){
-                //     Session::flash('alert-danger',' '.$result->message);
-                //     return back()->withInput();
-                // }
+                $class  =  'success';
+                if($result->error == 'true'){
+                    Session::flash('alert-danger',' '.$result->message);
+                    return back()->withInput();
+                }
     
-                // $permissions = [];
-                // foreach($result->permissions as $permission){
-                // $permissions[]= $permission->permission;
+                $permissions = [];
+                foreach($result->permissions as $permission){
+                $permissions[]= $permission->permission;
     
-                // }
-                // $permissions = json_encode($permissions);
-                // $permissions = cookie('permissions', $permissions, 300);
-                // $token = cookie('token', $result->access_token, 300);
-                // $role = cookie('role', $result->user->role->name, 300);
-                // $fullname = cookie('fullname', $result->user->first_name.' '.$result->user->middle_name.' '.$result->user->last_name, 3000);
+                }
+                $permissions = json_encode($permissions);
+                $permissions = cookie('permissions', $permissions, 300);
+                $token = cookie('token', $result->access_token, 300);
+                $role = cookie('role', $result->user->role->name, 300);
+                $fullname = cookie('fullname', $result->user->first_name.' '.$result->user->middle_name.' '.$result->user->last_name, 3000);
                 
-                // Session::flash('alert-'.$class,' '.$result->message);
-                // return redirect('dashboard')->withCookies([$token,$permissions,$fullname,$role]);
+                Session::flash('alert-'.$class,' '.$result->message);
+                return redirect('dashboard')->withCookies([$token,$permissions,$fullname,$role]);
                 return redirect('dashboard');
     
-            // } catch (\Throwable $exception){
+            } catch (\Throwable $exception){
                 
-            //     Session::flash('alert-danger',' Server error ');
+                Session::flash('alert-danger',' Server error ');
     
-            //     return redirect('/system')->withInput();
-            // }
+                return redirect('/system')->withInput();
+            }
     
     }
 

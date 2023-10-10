@@ -21,8 +21,8 @@ Route::get('system', [AuthenticationController::class,'signin'])->name('login');
 Route::post('login', [AuthenticationController::class,'login']);
 
 
-Route::group([], function () {
-// Route::middleware('auth:sanctum')->group( function () {
+// Route::group([], function () {
+Route::middleware('auth:sanctum')->group( function () {
     
     Route::controller(AuthenticationController::class)->group(function (){
         Route::get('logout', 'logout');
