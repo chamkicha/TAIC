@@ -39,6 +39,7 @@
                             <th>Reg. Date</th>
                             <th>Total Bill Amount</th>
                             <th>Bill Status</th>
+                            <th>Channel</th>
                             <th style="width: 150px;">Action</th>
                         </tr>
                     </thead>
@@ -74,10 +75,30 @@
                                 @else
 
                                   @foreach ($member->bills as $w)
-                                    @if( $w->paid_status == 1)
+                                    @if( $w->paid_status == 1 || $w->paid_status == 3)
                                    <span class="badge bg-success">Paid</span>
                                    @else
                                    <span class="badge bg-info">Not Paid</span>
+                                   @endif
+                                  @endforeach
+                                @endif
+
+                            </td>
+                            <td>
+
+
+                                @if(empty($member->bills)) 
+                                 
+                                @else
+
+                                  @foreach ($member->bills as $w)
+                                    @if( $w->paid_status == 1 || $w->paid_status == 3)
+                                      @if($w->paid_status == '')
+                                        <span class="badge bg-success">N-CARD</span>
+                                      @else
+                                       <span class="badge bg-success">GPEG</span>
+                                      @endif
+                                   @else
                                    @endif
                                   @endforeach
                                 @endif
